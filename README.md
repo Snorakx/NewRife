@@ -1,4 +1,5 @@
 ##Folder structure
+
 - **common**
 	- **[components]** (all common functional code)
 		 -  **[singleComponent]**;
