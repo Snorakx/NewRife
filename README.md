@@ -1,5 +1,5 @@
-##Folder structure
-
+<details>
+<summary>**Folder structure**</summary>
 - **common**
 	- **[components]** (all common functional code)
 		 -  **[singleComponent]**;
@@ -45,3 +45,4 @@
 - **assets**(images etc.)
 - index.js
 - app.js
+</details>
