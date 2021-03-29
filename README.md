@@ -47,25 +47,25 @@
 
 # Desing system
 <details><summary>Headers</summary>
-		 - **h1**:
+		 - h1:
 		 <ul>
 		 <li>36px; </li>
 		  <li>color; </li>
 		 <li>margin; </li>
 		  <li>etc; </li>
 </ul>
-		 - **h2**
+		 - h2
 		 <ul>
 		 <li>0.8*h1; </li>
 		  <li>color; </li>
 		 <li>margin; </li>
 		  <li>etc; </li>
 </ul>
-		 - **etc** - ...
+		 - etc - ...
 </details>
 
 <details><summary>Paragraphs</summary>
-		 - **text**:
+		 - text:
 		 <ul>
 		 <li>36px; </li>
 		  <li>color; </li>
@@ -75,7 +75,7 @@
 </details>
 
 <details><summary>Hex</summary>
-		 - **Element**:
+		 - Element:
 		 <ul>
 		 <li>Color </li>
 </ul>
