@@ -44,3 +44,39 @@
 - **assets**(images etc.)
 - index.js
 - app.js
+
+#Desing system
+<details><summary>Headers</summary>
+		 - **h1**:
+		 <ul>
+		 <li>36px; </li>
+		  <li>color; </li>
+		 <li>margin; </li>
+		  <li>etc; </li>
+</ul>
+		 - **h2**
+		 <ul>
+		 <li>0.8*h1; </li>
+		  <li>color; </li>
+		 <li>margin; </li>
+		  <li>etc; </li>
+</ul>
+		 - **etc** - ...
+</details>
+
+<details><summary>Paragraphs</summary>
+		 - **text**:
+		 <ul>
+		 <li>36px; </li>
+		  <li>color; </li>
+		 <li>margin; </li>
+		  <li>etc; </li>
+</ul>
+</details>
+
+<details><summary>Hex</summary>
+		 - **Element**:
+		 <ul>
+		 <li>Color </li>
+</ul>
+</details>
