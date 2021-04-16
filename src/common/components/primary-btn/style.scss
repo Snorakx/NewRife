@@ -1,0 +1,26 @@
+@import '../../../App.scss';
+
+
+.primary-btn{
+    text-align: center;
+    margin: auto;
+    margin-top:  7%;
+    margin-bottom: 7%;
+    padding: $padding-btn;
+    font-weight: $font-regular;
+    background-color: $primary-1000;
+    color: $white-100;
+    filter: $primary-shadow;
+    font-family: $font;
+    font-size: $font-size-sm;
+    border-radius: $round-border;
+    transition: $transition-btn;
+    }
+    
+    .primary-btn:hover {
+    background-color: $primary-900;
+    filter: $hover-shadow;
+    cursor: pointer;
+    }
+    
+

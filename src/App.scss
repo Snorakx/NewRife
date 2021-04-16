@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+
+$primary-100: #EDEBFB;
+$primary-200: #DBD7F7;
+$primary-300: #C9C3F3;
+$primary-400: #B8AFEF;
+$primary-500: #A69CEB;
+$primary-600: #9488E7;
+$primary-700: #8374E3;
+$primary-800: #7160DF;
+$primary-900: #5F4CDB;
+$primary-1000: #4E39D8;
+
+$white-100: #fff;
+$white-200: #FDFDFE;
+$white-300: #F7F7FD;
+$white-400: #F4F3FC;
+$white-500: #F2F1FC;
+$white-600: #F0EFFB;
+$white-700: #EEEDFB;
+
+$gray-100: #E5E5E5;
+$gray-200: #CCCCCC;
+$gray-300: #B3B3B3;
+$gray-400: #999999;
+$gray-500: #808080;
+$gray-600: #4D4D4D;
+$gray-700: #343434;
+$gray-800: #1B1B1B;
+$gray-900: #020202;
+
+$accent-100: #FFDA58;
+$accent-200: #37DBFF;
+$accent-300: #E791FE;
+
+$font: 'Roboto', sans-serif;
+
+$font-bold: 700;
+$font-regular: 400;
+
+
+$font-size-mobile-sm: 16px;
+$font-size-mobile-lg: 18px;
+$font-size-sm: 18px;
+$font-size-lg: 20px;
+
+$logo-size-mobile-sm: 18px;
+$logo-size-mobile-lg: 20px;
+$logo-size-sm: 50px;
+$logo-size-lg: 80px;
+
+$padding-btn: 3%;
+$transition-btn: .3s;
+
+$primary-shadow: drop-shadow(-2px 2px 8px $primary-100);
+$hover-shadow: drop-shadow(-2px 2px 8px $primary-300);
+$shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+$round-border: 5px;
+

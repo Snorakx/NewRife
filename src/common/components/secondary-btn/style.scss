@@ -1,0 +1,26 @@
+@import '../../../App.scss';
+
+
+.secondary-btn{
+    text-align: center;
+    margin: auto;
+    margin-top:  7%;
+    margin-bottom: 7%;
+    padding: $padding-btn;
+    font-weight: $font-regular;
+    background-color: $white-100;
+    color: $gray-600;
+    filter: $primary-shadow;
+    font-family: $font;
+    font-size: $font-size-lg;
+    border-radius: $round-border;
+    transition: $transition-btn;
+    }
+    
+    .secondary-btn:hover {
+    background-color: $white-300;
+    filter: $hover-shadow;
+    cursor: pointer;
+    }
+    
+
