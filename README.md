@@ -7,18 +7,13 @@
     - component.scss;
   - **[containers]** (all common containers(bigges than components))
 - **pages**
-  - **[ClockPage]** (all you need to single screen) - **[components]**; - **[singleComponent]**; - component.js; - component.scss;
-    - index.js
-    - clockPage.scss
-  - **[HomePage]** (all you need to single screen) - **[components]**; - **[singleComponent]**; - component.js; - component.scss;
-    - index.js
-    - homePage.scss
-  - **[TaskPage]** (all you need to single screen) - **[components]**; - **[singleComponent]**; - component.js; - component.scss;
-    - index.js
-      taskPage.scss
-  - **[SettingsPage]** (all you need to single screen) - **[components]**; - **[singleComponent]**; - component.js; - component.scss;
-    - index.js
-      settingsPage.scss
+  - **[ClockPage]** (all you need to single screen)
+  - **[components]**
+  	- **[singleComponent]**
+ 	 	- component.js
+  		- component.scss
+ - index.js
+ - clockPage.scss
 - **state**
   - **[tasks]** (actions and reducers for tasks)
     - tasksActions.js
