@@ -7,7 +7,7 @@
     - component.scss;
   - **[containers]** (all common containers(bigges than components))
 - **pages**
-  - **[ClockPage]** (all you need to single screen)
+  - **[ExamplePage]** (all you need to single screen)
   - **[components]**
   	- **[singleComponent]**
  	 	- component.js
