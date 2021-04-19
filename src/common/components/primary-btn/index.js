@@ -4,7 +4,7 @@ import './style.scss';
 const PrimaryBtn =(props)=> {
   
     return (
-    <div class="primary-btn">{props.children}</div> 
+    <div class="primary-btn" onClick={props.handleClick}>{props.children}</div> 
     );
   }
 

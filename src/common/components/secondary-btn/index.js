@@ -4,7 +4,7 @@ import './style.scss';
 const SecondaryBtn =(props)=> {
   
     return (
-    <div class="secondary-btn">{props.children}</div> 
+    <div class="secondary-btn" onClick={props.handleClick}>{props.children}</div> 
     );
   }
 
