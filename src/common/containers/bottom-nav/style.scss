@@ -1,0 +1,38 @@
+@import "../../../App.scss";
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .navbar {
+	overflow: hidden;
+	background-color: $primary-1000;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+  }
+  
+  .navbar a {
+	float: left;
+	display: block;
+	color: $primary-200;
+	text-align: center;
+	padding: 6% 9%;
+	text-decoration: none;
+  }
+  
+  .navbar a:hover {
+	background: $primary-900;
+	color: $white-100;
+  }
+  
+  .navbar a.active {
+	background-color: $primary-900;
+	color: $white-100;
+  }
+  
+  .main {
+	padding: 16px;
+	margin-bottom: 30px;
+  }

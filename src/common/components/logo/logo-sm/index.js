@@ -4,7 +4,7 @@ import './style.scss';
 const Logo =()=> {
   
     return (
-    <div className="logo">Rife</div> 
+    <div className="logo-sm">Rife</div> 
     );
   }
 

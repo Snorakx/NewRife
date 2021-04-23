@@ -2,19 +2,20 @@
 
 
 .secondary-btn{
+    background-color: $white-100;
+    color: $gray-600;
     text-align: center;
     margin: auto;
     margin-top:  7%;
     margin-bottom: 7%;
     padding: $padding-btn;
     font-weight: $font-regular;
-    background-color: $white-100;
-    color: $gray-600;
     filter: $primary-shadow;
     font-family: $font;
-    font-size: $font-size-lg;
+    font-size: $font-size-sm;
     border-radius: $round-border;
     transition: $transition-btn;
+    width: 100%;
     }
     
     .secondary-btn:hover {
