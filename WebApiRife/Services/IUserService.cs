@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using RifeIdentity.Shared;
+using Rife.Api.Models;
+
 
 namespace Rife.Api.Services
 {
@@ -18,6 +20,9 @@ namespace Rife.Api.Services
 
         Task<UserManagerResponse> LoginUserAsync(LoginViewModel model);
         Task<UserManagerResponse> LoadUserAsync(string idUser);
+        Task<Clients> SetUserSettingsAsync(Clients model,string idUser);
+
+
 
     }
     public class UserService : IUserService
@@ -50,6 +55,7 @@ namespace Rife.Api.Services
             {
                 Email = model.Email,
                 UserName = model.Email,
+
             };
             var result = await _userManager.CreateAsync(identityUser, model.Password);
 
@@ -118,6 +124,11 @@ namespace Rife.Api.Services
         }
         public async Task<UserManagerResponse> LoadUserAsync(string idUser)
         {
+            if(idUser == null)
+            {
+                throw new NullReferenceException("Register Model null");
+
+            }
             var userData = await _userManager.FindByIdAsync(idUser);
             string UD = userData.ToString();
             return new UserManagerResponse
@@ -126,5 +137,23 @@ namespace Rife.Api.Services
                 IsSuccess = true,
             };
         }
+
+        public async Task<Clients> SetUserSettingsAsync(Clients model, string idUser)
+        {
+           
+
+            return new Clients
+            {
+                ID = idUser,
+                Monday = model.Monday,
+                Tuesday = model.Tuesday,
+                Wednesday = model.Wednesday,
+                Thursday = model.Thursday,
+                Friday = model.Friday,
+                Saturday = model.Saturday,
+                Sunday = model.Sunday,
+            };
+        }
+
     }
 }

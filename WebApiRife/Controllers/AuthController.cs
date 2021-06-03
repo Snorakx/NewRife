@@ -54,13 +54,21 @@ namespace Rife.Api.Controllers
         [Authorize]
         public async Task<IActionResult> LoadAsync()
         {
-            var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            
 
+            if (ModelState.IsValid)
+            {
+                var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
 
-            var result = await _userService.LoadUserAsync(idUser);
-            return Ok(result);
+                var result = await _userService.LoadUserAsync(idUser);
+                if (result.IsSuccess)
+                {
 
-
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
+            return BadRequest("Some properties are not valid..");
         }
     }
 }

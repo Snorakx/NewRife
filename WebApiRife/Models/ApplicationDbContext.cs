@@ -15,6 +15,7 @@ namespace Rife.Api.Models
 
         }
        public DbSet<Clients> MyUsers { get; set; }
+       public DbSet<User> Users { get; set; }
 
 
     }

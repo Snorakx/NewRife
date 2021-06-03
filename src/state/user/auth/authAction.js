@@ -68,7 +68,7 @@ export const loginUser = (email, password) => (dispatch, getState) => {
     },
     body: JSON.stringify(credentials),
   };
-  console.log(credentials);
+  console.log(requestOptions);
   fetch('https://localhost:44348/api/auth/login', requestOptions)
     .then((response) => response.json())
     .then((data) => {
