@@ -4,8 +4,8 @@
 .primary-btn{
     text-align: center;
     margin: auto;
-    margin-top:  7%;
-    margin-bottom: 7%;
+    margin-top:  10%;
+    margin-bottom: 10%;
     padding: $padding-btn;
     font-weight: $font-regular;
     background-color: $primary-1000;
@@ -15,6 +15,7 @@
     font-size: $font-size-sm;
     border-radius: $round-border;
     transition: $transition-btn;
+    width: 100%;
     }
     
     .primary-btn:hover {
