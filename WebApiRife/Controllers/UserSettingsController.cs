@@ -49,9 +49,22 @@ namespace Rife.Api.Controllers
             }
             
             return Ok(result);
-
         }
+        [HttpGet("GetSettings")]
+        [Authorize]
+        public async Task<IActionResult> GetSettingsAsync()
+        {
+            var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
 
+            if (_dbContext.MyUsers.Any(client => client.ID == idUser))
+            {
+               var data = _dbContext.MyUsers.Single(client => client.ID == idUser);
+                var result = await _userService.GetUserSettingsAsync(data);
+                return Ok(result);
+
+            }
+            return BadRequest("Not found");
+        }
 
 
 

@@ -21,6 +21,8 @@ namespace Rife.Api.Services
         Task<UserManagerResponse> LoginUserAsync(LoginViewModel model);
         Task<UserManagerResponse> LoadUserAsync(string idUser);
         Task<Clients> SetUserSettingsAsync(Clients model,string idUser);
+        Task<UserSettingsManagerResponse> GetUserSettingsAsync(Clients model);
+
 
 
 
@@ -145,6 +147,19 @@ namespace Rife.Api.Services
             return new Clients
             {
                 ID = idUser,
+                Monday = model.Monday,
+                Tuesday = model.Tuesday,
+                Wednesday = model.Wednesday,
+                Thursday = model.Thursday,
+                Friday = model.Friday,
+                Saturday = model.Saturday,
+                Sunday = model.Sunday,
+            };
+        }
+        public async Task<UserSettingsManagerResponse> GetUserSettingsAsync(Clients model)
+        {
+            return new UserSettingsManagerResponse
+            {
                 Monday = model.Monday,
                 Tuesday = model.Tuesday,
                 Wednesday = model.Wednesday,

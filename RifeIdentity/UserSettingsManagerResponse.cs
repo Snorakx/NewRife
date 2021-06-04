@@ -6,7 +6,7 @@ namespace RifeIdentity.Shared
 {
     public class UserSettingsManagerResponse
     {
-        public string ID { get; set; }
+        
         public int Monday { get; set; }
         public int Tuesday { get; set; }
         public int Wednesday { get; set; }
