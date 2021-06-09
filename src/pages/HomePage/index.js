@@ -1,6 +1,8 @@
 import React from 'react';
+import React from 'react';
 import store from "../../app/store"
 import {Redirect} from "react-router-dom"
+import Dashboard from "../../common/containers/Dashboard";
 
 
 
@@ -11,9 +13,10 @@ let isLoggedIn = store.getState().auth.isAuthenticated
     return <Redirect to="/"/>
   }else{
   return(   
-  <div>Home Home Home Home Home Home Home Home</div>
+  <Dashboard />
   )
 }
+
 };
 
 export default HomeScreen;

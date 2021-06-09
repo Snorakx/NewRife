@@ -1,22 +1,15 @@
 @import "../../../../App.scss";
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: auto;
-  padding: 0;
-}
-
-.form {
-  position: relative;
-  width: 20rem;
-  height: 100vh;
-}
-
 .astrounat-img{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.form {
+  margin: auto;
+  padding: 0;
+  position: relative;
+  width: 20rem;
+  height: 100vh;
+}

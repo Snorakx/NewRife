@@ -11,7 +11,7 @@ const Dashboard = () => {
     <div>
       <input type="checkbox" id="check" />
       <header>
-        <label for="check">
+        <label >
           <div id="sidebar_btn">
             <Logo />
             <i className="fas fa-bars"></i>

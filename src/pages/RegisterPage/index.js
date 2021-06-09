@@ -1,45 +1,71 @@
-import React from 'react';
-import { useState } from 'react';
-import PrimaryBtn from '../../common/components/primary-btn';
-import SecondaryBtn from '../../common/components/secondary-btn';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { RegisterUser } from '../../state/user/auth/authAction';
+import React from "react";
+import { useState } from "react";
+import SecondaryBtn from "../../common/components/secondary-btn";
+import PrimaryBtn from "../../common/components/PrimaryBtn";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { RegisterUser } from "../../state/user/auth/authAction";
+import TextField from "@material-ui/core/TextField";
+import CustomLink from "../../common/components/CustomLink/index";
+import Container from "@material-ui/core/Container";
+import Logo from "../../common/components/logo/logo-lg";
+import "./style.scss";
 
 const RegisterScreen = () => {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [c_password, setC_Password] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [c_password, setC_Password] = useState("");
 
   const registerUser = () => {
     dispatch(RegisterUser(email, password, c_password));
   };
   return (
-    <form>
-      <div className="input-container">
-        <label className="another-label">E-mail</label>
-        <input
-          className="another-input"
+    <Container component="main" maxWidth="xs">
+      <form autoComplete="off">
+        <Logo />
+        <TextField
+          className="form-input"
+          id="e-mail"
+          margin="normal"
+          required
+          fullWidth
+          label="E-mail"
+          variant="outlined"
+          name="email"
+          autoComplete="email"
+          autoFocus
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label className="another-label">Hasło</label>
-        <input
-          className="another-input"
+        <TextField
+          className="form-input"
+          id="password"
+          required
+          fullWidth
+          label="Hasło"
+          variant="outlined"
+          name="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label className="another-label">Powtórz hasło</label>
-        <input
-          className="another-input"
+        <TextField
+          className="form-input"
+          id="repeat-password"
+          margin="normal"
+          required
+          fullWidth
+          label="Powtórz hasło"
+          variant="outlined"
+          name="repeat-password"
+          autoFocus
           type="password"
           value={c_password}
           onChange={(e) => setC_Password(e.target.value)}
         />
-        <PrimaryBtn className="second-register-btn" handleClick={registerUser}>
+        <PrimaryBtn className="second-register-btn" handleClick={register}>
           Zarejestruj
         </PrimaryBtn>
         <Link to="/">
@@ -47,8 +73,16 @@ const RegisterScreen = () => {
             Masz już konto? <b>Zaloguj</b>
           </SecondaryBtn>
         </Link>
-      </div>
-    </form>
+        <PrimaryBtn className="second-register-btn" handleClick={registerUser}>
+          Zarejestruj
+        </PrimaryBtn>
+        <Link to="/">
+          <CustomLink>
+            Masz już konto? <b>Zaloguj</b>
+          </CustomLink>
+        </Link>
+      </form>
+    </Container>
   );
 };
 
