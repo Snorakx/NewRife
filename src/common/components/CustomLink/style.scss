@@ -1,26 +1,22 @@
 @import '../../../App.scss';
 
 
-.secondary-btn{
-    background-color: $white-100;
+.custom-link{
     color: $gray-600;
     text-align: center;
     margin: auto;
-    margin-top:  7%;
-    margin-bottom: 7%;
     padding: $padding-btn;
     font-weight: $font-regular;
-    filter: $primary-shadow;
     font-family: $font;
     font-size: $font-size-sm;
     border-radius: $round-border;
     transition: $transition-btn;
     width: 100%;
+    box-sizing: border-box;
     }
     
-    .secondary-btn:hover {
-    background-color: $white-300;
-    filter: $hover-shadow;
+    .custom-link:hover {
+    color: $primary-1000;
     cursor: pointer;
     }
     

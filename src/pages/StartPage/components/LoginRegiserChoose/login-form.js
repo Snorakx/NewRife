@@ -1,7 +1,7 @@
 import React from "react";
 import './style.scss';
 import Logo from '../../../../common/components/logo/logo-lg/index';
-import PrimaryBtn from '../../../../common/components/primary-btn/index';
+import PrimaryBtn from '../../../../common/components/PrimaryBtn/index';
 import {Link} from "react-router-dom";
 import Astronaut from "../../../../assets/astronaut.png";
 
@@ -19,9 +19,15 @@ const Form = ()=> {
       <Link to="/register">
       <PrimaryBtn>Zarejestruj</PrimaryBtn>
       </Link>
+<<<<<<< Updated upstream
     </div> 
     );
   }
 
+=======
+    </div>
+  );
+};
+>>>>>>> Stashed changes
 
 export default Form;

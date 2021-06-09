@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "TVLuwlvrlPglvnZuAT3pD2Zf8HnM1s7aEW6cqEjukHej23NLv3AyYOm/cPGNhPhZj/vBT7q6WiZphroezDFT+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\oliwi\\Documents\\GitHub\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oliwi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
