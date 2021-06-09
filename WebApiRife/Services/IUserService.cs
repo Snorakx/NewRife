@@ -142,8 +142,6 @@ namespace Rife.Api.Services
 
         public async Task<Clients> SetUserSettingsAsync(Clients model, string idUser)
         {
-           
-
             return new Clients
             {
                 ID = idUser,

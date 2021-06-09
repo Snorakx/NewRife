@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rife.Api.Models;
 
 namespace Rife.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210604153825_INIT2")]
+    partial class INIT2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,16 +229,7 @@ namespace Rife.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("AllDeclaredHours")
-                        .HasColumnType("int");
-
                     b.Property<int>("Friday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HoursToNextLevel")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Level")
                         .HasColumnType("int");
 
                     b.Property<int>("Monday")
@@ -258,9 +251,6 @@ namespace Rife.Api.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Wednesday")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkedHours")
                         .HasColumnType("int");
 
                     b.HasKey("ID");

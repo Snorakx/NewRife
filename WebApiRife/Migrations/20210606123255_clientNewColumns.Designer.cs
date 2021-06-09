@@ -10,8 +10,8 @@ using Rife.Api.Models;
 namespace Rife.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210602153039_init")]
-    partial class init
+    [Migration("20210606123255_clientNewColumns")]
+    partial class clientNewColumns
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -229,7 +229,16 @@ namespace Rife.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("AllDeclaredHours")
+                        .HasColumnType("int");
+
                     b.Property<int>("Friday")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HoursToNextLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Level")
                         .HasColumnType("int");
 
                     b.Property<int>("Monday")
@@ -251,6 +260,9 @@ namespace Rife.Api.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Wednesday")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkedHours")
                         .HasColumnType("int");
 
                     b.HasKey("ID");

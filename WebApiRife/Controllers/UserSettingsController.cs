@@ -24,7 +24,6 @@ namespace Rife.Api.Controllers
         {
             _dbContext = dbContext;
             _userService = userService;
-
         }
 
         [HttpPost("SetSettings")]
@@ -33,18 +32,20 @@ namespace Rife.Api.Controllers
         {
             var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
 
-
             var result = await _userService.SetUserSettingsAsync(model, idUser);
+            var currentUser = _dbContext.MyUsers.SingleOrDefault(client => client.ID == idUser);
 
-            if(_dbContext.MyUsers.Any(client => client.ID == idUser))
-            {
-                _dbContext.MyUsers.Update(result);
-                _dbContext.SaveChanges();
 
-            }
-            else
+            if (_dbContext.MyUsers.Any(client => client.ID == idUser))
             {
-                _dbContext.MyUsers.Add(result);
+                currentUser.Monday = result.Monday;
+                currentUser.Tuesday = result.Tuesday;
+                currentUser.Wednesday = result.Wednesday;
+                currentUser.Thursday = result.Thursday;
+                currentUser.Friday = result.Friday;
+                currentUser.Saturday = result.Saturday;
+                currentUser.Sunday = result.Sunday;
+                currentUser.AllDeclaredHours = result.Monday + result.Tuesday + result.Wednesday + result.Thursday + result.Friday + result.Saturday + result.Sunday;
                 _dbContext.SaveChanges();
             }
             
@@ -58,15 +59,11 @@ namespace Rife.Api.Controllers
 
             if (_dbContext.MyUsers.Any(client => client.ID == idUser))
             {
-               var data = _dbContext.MyUsers.Single(client => client.ID == idUser);
+                var data = _dbContext.MyUsers.Single(client => client.ID == idUser);
                 var result = await _userService.GetUserSettingsAsync(data);
                 return Ok(result);
-
             }
             return BadRequest("Not found");
         }
-
-
-
     }
 }

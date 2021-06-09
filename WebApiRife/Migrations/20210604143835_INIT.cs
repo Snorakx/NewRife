@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Rife.Api.Migrations
 {
-    public partial class init : Migration
+    public partial class INIT : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -165,6 +165,8 @@ namespace Rife.Api.Migrations
                     Friday = table.Column<int>(nullable: false),
                     Saturday = table.Column<int>(nullable: false),
                     Sunday = table.Column<int>(nullable: false),
+                    WorkedHours = table.Column<int>(nullable: false),
+                    Level = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

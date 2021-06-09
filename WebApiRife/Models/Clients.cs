@@ -19,5 +19,9 @@ namespace Rife.Api.Models
         public int Friday { get; set; }
         public int Saturday { get; set; }
         public int Sunday { get; set; }
+        public int AllDeclaredHours { get; set; }
+        public int WorkedHours { get; set; }
+        public int Level { get; set; }
+        public int HoursToNextLevel { get; set; }
     }
 }
