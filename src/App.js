@@ -8,7 +8,7 @@ import LoginScreen from "./pages/LoginPage";
 import RegisterScreen from "./pages/RegisterPage";
 import StartScreen from "./pages/StartPage/index";
 import { loadUser } from "./state/user/auth/authAction";
-import Dashboard from "./common/containers/Dashboard/index";
+import Dashboard from "./common/containers/dashboard"
 import SettingsScreen from "./pages/SettingsPage/index";
 
 function App() {
@@ -37,6 +37,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={StartScreen} />
         <Route path="/dashboard" component={Dashboard} />
+        <Route path="/login" component={LoginScreen} />
+        <Route path="/register" component={RegisterScreen} />
         <Route path="/settings" component={SettingsScreen} />
         <PrivateRoute path="/home" component={HomeScreen} />
       </Switch>

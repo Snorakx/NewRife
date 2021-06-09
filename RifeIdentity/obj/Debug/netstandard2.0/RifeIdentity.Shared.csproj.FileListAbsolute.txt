@@ -7,3 +7,12 @@ C:\Users\patryk.koziel\Desktop\NewRife\RifeIdentity\obj\Debug\netstandard2.0\Rif
 C:\Users\patryk.koziel\Desktop\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.csproj.CoreCompileInputs.cache
 C:\Users\patryk.koziel\Desktop\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.dll
 C:\Users\patryk.koziel\Desktop\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.pdb
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\bin\Debug\netstandard2.0\RifeIdentity.Shared.deps.json
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\bin\Debug\netstandard2.0\RifeIdentity.Shared.dll
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\bin\Debug\netstandard2.0\RifeIdentity.Shared.pdb
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.csprojAssemblyReference.cache
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.AssemblyInfoInputs.cache
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.AssemblyInfo.cs
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.csproj.CoreCompileInputs.cache
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.dll
+C:\Users\patryk.koziel\Documents\testowy_MERGE\NewRife\RifeIdentity\obj\Debug\netstandard2.0\RifeIdentity.Shared.pdb

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import SecondaryBtn from "../../common/components/secondary-btn";
+import SecondaryBtn from "../../common/components/SecondaryBtn/index"
 import PrimaryBtn from "../../common/components/PrimaryBtn";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -65,7 +65,7 @@ const RegisterScreen = () => {
           value={c_password}
           onChange={(e) => setC_Password(e.target.value)}
         />
-        <PrimaryBtn className="second-register-btn" handleClick={register}>
+        <PrimaryBtn className="second-register-btn" handleClick={registerUser}>
           Zarejestruj
         </PrimaryBtn>
         <Link to="/">

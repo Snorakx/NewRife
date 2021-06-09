@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pmAIWgCqy7CdLS9Zvje9no+jIDzzrKpLPMRDAMRYIPLUq5FxyloJ1VNRKg/fnaCiU2H1BW1Frl3fTw1tp0Vqmg==",
+  "dgSpecHash": "NmJWomDdvpV7plu+cL6O6aKcuPWOpX2U1T4/jcBfgJoqTTpoUsgH8zOAA4dRytGJsjkyvzCnT8Pg+Rv4QThxNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\WebApiRife\\Rife.Api.csproj",
+  "projectFilePath": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\WebApiRife\\Rife.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patryk.koziel\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\patryk.koziel\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

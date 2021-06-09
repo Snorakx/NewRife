@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\WebApiRife\\Rife.Api.csproj": {}
+    "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\WebApiRife\\Rife.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
+    "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
         "projectName": "RifeIdentity.Shared",
-        "projectPath": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+        "projectPath": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
         "packagesPath": "C:\\Users\\patryk.koziel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\RifeIdentity\\obj\\",
+        "outputPath": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\RifeIdentity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -71,14 +71,14 @@
         }
       }
     },
-    "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\WebApiRife\\Rife.Api.csproj": {
+    "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\WebApiRife\\Rife.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\WebApiRife\\Rife.Api.csproj",
+        "projectUniqueName": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\WebApiRife\\Rife.Api.csproj",
         "projectName": "Rife.Api",
-        "projectPath": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\WebApiRife\\Rife.Api.csproj",
+        "projectPath": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\WebApiRife\\Rife.Api.csproj",
         "packagesPath": "C:\\Users\\patryk.koziel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\WebApiRife\\obj\\",
+        "outputPath": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\WebApiRife\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -101,8 +101,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
-                "projectPath": "C:\\Users\\patryk.koziel\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj"
+              "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
+                "projectPath": "C:\\Users\\patryk.koziel\\Documents\\testowy_MERGE\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj"
               }
             }
           }
