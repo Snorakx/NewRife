@@ -16,7 +16,7 @@ const initialState = {
   user: null,
 };
 
-export default function (state = initialState, action) {
+export default function authReducerFunction (state = initialState, action) {
   switch (action.type) {
     case USER_LOADING:
       return {
@@ -40,14 +40,6 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         isLoading: false,
       };
-    case REGISTER_SUCCESS:
-      return {
-        ...state,
-        ...action.payload,
-        isAuthenticated: true,
-        isLoading: false,
-      };
-
     case AUTH_ERROR:
     case LOGIN_FAILED:
     case LOGOUT_SUCCESS:

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rife.Api.Models;
 
 namespace Rife.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210621124029_TasksTableMigration2")]
+    partial class TasksTableMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,7 +274,7 @@ namespace Rife.Api.Migrations
 
             modelBuilder.Entity("Rife.Api.Models.MyTask", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("UID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
@@ -282,21 +284,16 @@ namespace Rife.Api.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("RepeatTask")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UserId");
+                    b.HasKey("UID");
 
                     b.ToTable("Tasks");
                 });
@@ -363,13 +360,6 @@ namespace Rife.Api.Migrations
                 {
                     b.HasOne("Rife.Api.Models.User", null)
                         .WithMany("MyUsers")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Rife.Api.Models.MyTask", b =>
-                {
-                    b.HasOne("Rife.Api.Models.User", null)
-                        .WithMany("Tasks")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

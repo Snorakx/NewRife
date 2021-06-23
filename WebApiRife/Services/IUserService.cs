@@ -165,6 +165,7 @@ namespace Rife.Api.Services
                 Friday = model.Friday,
                 Saturday = model.Saturday,
                 Sunday = model.Sunday,
+                isSuccess = true
             };
         }
 

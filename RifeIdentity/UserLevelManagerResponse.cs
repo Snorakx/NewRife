@@ -9,6 +9,9 @@ namespace RifeIdentity.Shared
         public int WorkedHours { get; set; }
         public int? Level { get; set; }
         public string Message { get; set; }
+        public bool isSuccess { get; set; }
+        public bool NewLevel { get; set; }
+
 
 
     }

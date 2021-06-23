@@ -10,6 +10,8 @@ import CustomLink from "../../common/components/CustomLink/index";
 import Container from "@material-ui/core/Container";
 import Logo from "../../common/components/logo/logo-lg";
 import "./style.scss";
+import store from "../../app/store"
+import {Redirect} from "react-router-dom"
 
 const RegisterScreen = () => {
   const dispatch = useDispatch();
@@ -20,7 +22,11 @@ const RegisterScreen = () => {
   const registerUser = () => {
     dispatch(RegisterUser(email, password, c_password));
   };
-  return (
+  let isLoggedIn = store.getState().auth.isAuthenticated
+  if(isLoggedIn){
+    return <Redirect to="/home"/>
+  }else{
+  return(   
     <Container component="main" maxWidth="xs">
       <form autoComplete="off">
         <Logo />
@@ -84,6 +90,7 @@ const RegisterScreen = () => {
       </form>
     </Container>
   );
+  }
 };
 
 export default RegisterScreen;

@@ -68,6 +68,8 @@ namespace WebApiRife
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserLevelService, UserLevelService>();
+            services.AddScoped<ITasksService, TasksService>();
+
 
 
             services.AddControllers();

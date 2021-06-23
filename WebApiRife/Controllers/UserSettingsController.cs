@@ -47,9 +47,17 @@ namespace Rife.Api.Controllers
                 currentUser.Sunday = result.Sunday;
                 currentUser.AllDeclaredHours = result.Monday + result.Tuesday + result.Wednesday + result.Thursday + result.Friday + result.Saturday + result.Sunday;
                 _dbContext.SaveChanges();
+                return Ok(result);
+
             }
-            
-            return Ok(result);
+            else
+            {
+                _dbContext.MyUsers.Add(result);
+                _dbContext.SaveChanges();
+                return Ok(result);
+
+            }
+
         }
         [HttpGet("GetSettings")]
         [Authorize]

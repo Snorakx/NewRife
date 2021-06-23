@@ -86,11 +86,15 @@ label #sidebar_btn {
 
 .content {
   margin-left: 250px;
-  background: $white-300;
+  background: #f7f7fd;
   background-position: center;
   background-size: cover;
   height: 100vh;
   transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #check:checked ~ .content {

@@ -23,6 +23,7 @@ namespace Rife.Api.Services
                 return new UserLevelManagerResponse
                 {
                     WorkedHours = 1,
+                    isSuccess = true
                 };
             }
             else
@@ -30,6 +31,7 @@ namespace Rife.Api.Services
                 return new UserLevelManagerResponse
                 {
                     WorkedHours = userWorkedHours++,
+                    isSuccess = true
                 };
             }
          
@@ -63,7 +65,10 @@ namespace Rife.Api.Services
                 return new UserLevelManagerResponse
                 {
                     Level = newUserLevel,
-                    Message = "Congratulations! Next level!"
+                    WorkedHours = userWorkedHours,
+                    Message = string.Format("Congratulations! New level {0}!", newUserLevel),
+                    isSuccess = true,
+                    NewLevel = true
                 };
             }
             else
@@ -71,7 +76,12 @@ namespace Rife.Api.Services
                 var hoursToNextLevel = levels[userLevel] * declaredUserHours;
                 return new UserLevelManagerResponse
                 {
-                    Message = hoursToNextLevel.ToString()
+                    Message = hoursToNextLevel.ToString(),
+                    WorkedHours = userWorkedHours,
+                    Level = userLevel,
+                    isSuccess = true,
+                    NewLevel = false
+
                 };
             }
 

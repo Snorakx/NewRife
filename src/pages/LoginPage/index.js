@@ -18,16 +18,20 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    if (store.getState().auth.isAuthenticated === true) {
-      history.push("/settings");
-    }
-  });
-  const dispatchLoginAction = () => {
+  // useEffect(() => {
+  //   if (store.getState().auth.isAuthenticated === true) {
+  //     history.push("/settings");
+  //   }
+  // });
+  const  dispatchLoginAction = async () => {
     dispatch(loginUser(email, password));
+    history.push('/home')
   };
-
-  return (
+  let isLoggedIn = store.getState().auth.isAuthenticated
+  if(isLoggedIn){
+    return <Redirect to="/home"/>
+  }else{
+  return(   
     <Container component="main" maxWidth="xs">
         <form autoComplete="off">
         <Logo />
@@ -76,6 +80,7 @@ const LoginScreen = () => {
         </form>
     </Container>
   );
+  }
 };
 
 export default LoginScreen;

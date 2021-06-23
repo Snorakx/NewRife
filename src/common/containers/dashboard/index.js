@@ -5,9 +5,13 @@ import QueryBuilderOutlinedIcon from '@material-ui/icons/QueryBuilderOutlined';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import PersonIcon from '@material-ui/icons/Person';
 import ViewWeekIcon from '@material-ui/icons/ViewWeek';
+import {Link} from "react-router-dom";
+import store from "../../../app/store"
 
-const Dashboard = () => {
-  return (
+
+const Dashboard = (props) => {
+ 
+  return(   
     <div>
       <input type="checkbox" id="check" />
       <header>
@@ -32,13 +36,13 @@ const Dashboard = () => {
           </i>
           <span>Dni tygodnia</span>
         </a>
-        <a href="#">
+        <Link to="/gold-hour">
         <i>
         <QueryBuilderOutlinedIcon />
         </i>
           <span>Zegar</span>
-        </a>
-        <a href="#">
+        </Link>
+        <a href="/gold-hour">
         <i>
         <DateRangeIcon />
         </i>
@@ -51,7 +55,7 @@ const Dashboard = () => {
           <span>Twoje konto</span>
         </a>
       </div>
-      <div className="content"></div>
+      <div className="content">{props.children}</div>
     </div>
   );
 };

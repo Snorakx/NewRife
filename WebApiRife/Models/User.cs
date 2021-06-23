@@ -9,5 +9,7 @@ namespace Rife.Api.Models
     public class User : IdentityUser
     {
         public virtual ICollection<Clients> MyUsers { get; set; }
+        public virtual ICollection<MyTask> Tasks { get; set; }
+
     }
 }

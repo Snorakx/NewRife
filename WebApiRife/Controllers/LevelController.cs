@@ -55,14 +55,19 @@ namespace Rife.Api.Controllers
 
 
                 var levelUp = await _userLevelService.AddLevel(userLevel, userWorkedHours, userDeclaredWorkHours);
-                if (levelUp.Message == "Congratulations! Next level!")
+                
+                if (levelUp.NewLevel == true)
                 {
                     currentUser.Level = userLevel + 1;
+                    currentUser.WorkedHours = userWorkedHours - userWorkedHours;
                     _dbContext.SaveChanges();
-                    currentUser.WorkedHours = 0;
+                    return Ok(levelUp);
+                }
+                else
+                {
+                    return Ok(result);
                 }
 
-                return Ok(result);
             }
             return BadRequest("Probably Your token is expired. Try relogin.");
         }

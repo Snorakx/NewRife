@@ -2,35 +2,55 @@ import {
   SET_USER_SETTINGS_FAILED,
   SET_USER_SETTINGS_SUCCESS,
   GET_USER_SETTINGS_SUCCESS,
-} from '../hours/hoursTypes';
+  ADD_USER_WORKING_HOUR,
+  USER_NEW_LEVEL
+} from "../hours/hoursTypes";
 
 const initialState = {
   settingsAdded: false,
-  monday:"",
+  workedHours: 0,
+  level:0,
 };
 
-export default function (state = initialState, action) {
+export default function hourReducerFunction(state = initialState, action) {
   switch (action.type) {
     case SET_USER_SETTINGS_SUCCESS:
       return {
         ...state,
         settingsAdded: true,
       };
-      case SET_USER_SETTINGS_FAILED:
+    case SET_USER_SETTINGS_FAILED:
       return {
         ...state,
         settingsAdded: false,
       };
-      case GET_USER_SETTINGS_SUCCESS:
-        return {
-          ...state,
-          monday: payload.monday,
-          tuesday: payload.tuesday,
-          wednesday: payload.wednesday,
-          thursday: payload.thursday,
-          friday: payload.friday,
-          saturday: payload.saturday,
-          sunday: payload.sunday
-        }
+    case GET_USER_SETTINGS_SUCCESS:
+      return {
+        ...state,
+        monday: action.payload.monday,
+        tuesday: action.payload.tuesday,
+        wednesday: action.payload.wednesday,
+        thursday: action.payload.thursday,
+        friday: action.payload.friday,
+        saturday: action.payload.saturday,
+        sunday: action.payload.sunday,
+      };
+    case ADD_USER_WORKING_HOUR:
+      console.log(action.payload.workedHours)
+      return {
+        ...state,
+        wordkedHours: action.payload.workedHours,
+        level: action.payload.level
+      };
+      case USER_NEW_LEVEL:
+      console.log(action.payload.Message)
+      return {
+        ...state,
+        wordkedHours: action.payload.workedHours,
+        level: action.payload.level,
+        message: action.payload.message
+      };
+    default:
+      return state;
   }
 }

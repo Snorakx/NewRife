@@ -14,6 +14,7 @@ namespace RifeIdentity.Shared
         public int Friday { get; set; }
         public int Saturday { get; set; }
         public int Sunday { get; set; }
+        public bool isSuccess { get; set; }
 
 
     }

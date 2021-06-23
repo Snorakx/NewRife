@@ -3,28 +3,20 @@ import {
   LOGIN_SUCCESS,
   USER_LOADING,
   USER_LOADED,
-  AUTH_ERROR,
-  LOGIN_FAILED,
   REGISTER_FAIL,
-  GET_ERRORS,
-  CLEAR_ERRORS,
-  LOGOUT_SUCCESS,
 } from '../auth/authTypes';
 
 import { returnErrors, clearErrors } from './authErrorActions';
-import { useDispatch } from 'react-redux';
 
 //check token/ load
 
 export const loadUser = () => (dispatch, getState) => {
+
   //loading user
   dispatch({ type: USER_LOADING });
   const token = getState().auth.token;
-  let myHeaders = ['Content-Type', 'application/json', ,];
 
-  if (token) {
-    myHeaders.push(`Authorization'${':'} Bearer ${token}`);
-  }
+
 
   const requestOptions = {
     method: 'get',
@@ -35,7 +27,7 @@ export const loadUser = () => (dispatch, getState) => {
   };
   console.log(requestOptions);
 
-  fetch('https://localhost:44348/api/auth/load', requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/api/auth/load`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
@@ -54,8 +46,6 @@ export const loadUser = () => (dispatch, getState) => {
 export const loginUser = (email, password) => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
 
-  const token = getState().auth.token;
-
   const credentials = {
     Email: email,
     Password: password,
@@ -69,7 +59,7 @@ export const loginUser = (email, password) => (dispatch, getState) => {
     body: JSON.stringify(credentials),
   };
   console.log(requestOptions);
-  fetch('https://localhost:44348/api/auth/login', requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
@@ -93,8 +83,6 @@ export const RegisterUser = (email, password, c_password) => (
 ) => {
   dispatch({ type: USER_LOADING });
 
-  const token = getState().auth.token;
-
   const credentials = {
     Email: email,
     Password: password,
@@ -109,7 +97,7 @@ export const RegisterUser = (email, password, c_password) => (
     body: JSON.stringify(credentials),
   };
   console.log(credentials);
-  fetch('https://localhost:44348/api/auth/register', requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {

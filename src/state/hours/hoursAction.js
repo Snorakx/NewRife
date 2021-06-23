@@ -2,6 +2,8 @@ import {
   SET_USER_SETTINGS_FAILED,
   SET_USER_SETTINGS_SUCCESS,
   GET_USER_SETTINGS_SUCCESS,
+  ADD_USER_WORKING_HOUR,
+  USER_NEW_LEVEL
 } from '../hours/hoursTypes';
 
 import { useDispatch } from 'react-redux';
@@ -29,15 +31,16 @@ export const setSettings = (hoursPerDay) => (dispatch, getState) => {
     body: JSON.stringify(bodyData)
   };
 
-  fetch('https://localhost:44348/api/userSettings/setSettings', requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/api/userSettings/setSettings`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-      if (data.ID != null) {
+      console.log(data)
+      if (data.id != null) {
         dispatch({
           type: SET_USER_SETTINGS_SUCCESS,
           payload: data,
         });
-      } else if (data.status !== 200) {
+      } else {
         dispatch({
           type: SET_USER_SETTINGS_FAILED,
           payload: data,
@@ -61,7 +64,7 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
   };
   console.log(requestOptions);
 
-  fetch('https://localhost:44348/api/userSettings/getSettings', requestOptions)
+  fetch(`${process.env.REACT_APP_API_URL}/api/userSettings/getSettings`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
@@ -69,8 +72,42 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
           type: GET_USER_SETTINGS_SUCCESS,
           payload: data,
         });
+      } else if (data.isSuccess === false) {
+        console.log(data)
+      }
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+export const addUserWorkedHour =  () => (dispatch, getState) => {
+  const token = getState().auth.token;
+
+  const requestOptions = {
+    method: 'post',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+  console.log(requestOptions);
+
+  fetch(`${process.env.REACT_APP_API_URL}/api/level/addhour`, requestOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.isSuccess === true) {
+        dispatch({
+          type: ADD_USER_WORKING_HOUR,
+          payload: data,
+        });
+        if(data.NewLevel === true){
+          dispatch({
+            type:USER_NEW_LEVEL,
+            payload:data
+          })
+        }
       } else if (data.status !== 200) {
-        console.log("data")
+        console.log(data.isSuccess)
       }
     })
     .catch((err) => {
