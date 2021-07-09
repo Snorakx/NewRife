@@ -64,14 +64,21 @@ namespace Rife.Api.Controllers
         public async Task<IActionResult> GetSettingsAsync()
         {
             var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
-
-            if (_dbContext.MyUsers.Any(client => client.ID == idUser))
+            if(idUser != null)
             {
-                var data = _dbContext.MyUsers.Single(client => client.ID == idUser);
-                var result = await _userService.GetUserSettingsAsync(data);
-                return Ok(result);
+                if (_dbContext.MyUsers.Any(client => client.ID == idUser))
+                {
+                    var data = _dbContext.MyUsers.Single(client => client.ID == idUser);
+                    var result = await _userService.GetUserSettingsAsync(data);
+                    return Ok(result);
+                }
+                var newUser = new UserSettingsManagerResponse
+                {
+                    isSuccess = false
+                };
+                return Ok(newUser);
             }
-            return BadRequest("Not found");
+            return BadRequest("Not Found!");
         }
     }
 }

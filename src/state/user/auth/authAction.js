@@ -4,7 +4,11 @@ import {
   USER_LOADING,
   USER_LOADED,
   REGISTER_FAIL,
+  LOGOUT_SUCCESS
 } from '../auth/authTypes';
+import {getSettings} from "../../hours/hoursAction";
+import {getTasks} from "../../tasks/tasksAction";
+
 
 import { returnErrors, clearErrors } from './authErrorActions';
 
@@ -35,6 +39,8 @@ export const loadUser = () => (dispatch, getState) => {
           type: USER_LOADED,
           payload: data,
         });
+        dispatch(getSettings()); 
+        dispatch(getTasks())
       } else if (data.status !== 200) {
         dispatch(returnErrors(data.errors, data.title, data.traceId));
       }
@@ -67,6 +73,10 @@ export const loginUser = (email, password) => (dispatch, getState) => {
           type: LOGIN_SUCCESS,
           payload: data,
         });
+        dispatch(getSettings());
+        dispatch(getTasks())
+
+
         dispatch(clearErrors());
       } else if (data.status !== 200) {
         dispatch(returnErrors(data.errors, data.title, data.traceId));
@@ -118,4 +128,7 @@ export const RegisterUser = (email, password, c_password) => (
     .catch((err) => {
       throw err;
     });
+};
+export const logoutUser = () => (dispatch, getState) => {
+  dispatch({ type: LOGOUT_SUCCESS });
 };

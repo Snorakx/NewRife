@@ -1,0 +1,21 @@
+
+.my-input{
+width:90%;
+    .custom-input{
+    width:100%;
+}
+
+    .container{
+        width:100%;
+        display:flex;
+        align-items: center;
+        overflow: hidden;
+    }
+    .custom-button-for-input{
+        font-size:1.7rem;
+        border-radius:15px;
+        transform:translateX(-15px);
+}
+}
+
+

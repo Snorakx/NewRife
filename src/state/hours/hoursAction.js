@@ -3,11 +3,11 @@ import {
   SET_USER_SETTINGS_SUCCESS,
   GET_USER_SETTINGS_SUCCESS,
   ADD_USER_WORKING_HOUR,
-  USER_NEW_LEVEL
-} from '../hours/hoursTypes';
+  USER_NEW_LEVEL,
+  SHOW_OPTIONS_TO_NEW_USER,
+} from "../hours/hoursTypes";
 
-import { useDispatch } from 'react-redux';
-
+import { useDispatch } from "react-redux";
 
 export const setSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
@@ -19,22 +19,25 @@ export const setSettings = (hoursPerDay) => (dispatch, getState) => {
     Thursday: hoursPerDay.hoursPerThursday,
     Friday: hoursPerDay.hoursPerFriday,
     Saturday: hoursPerDay.hoursPerSaturday,
-    Sunday: hoursPerDay.hoursPerSunday
-  }
-
-  const requestOptions = {
-    method: 'post',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(bodyData)
+    Sunday: hoursPerDay.hoursPerSunday,
   };
 
-  fetch(`${process.env.REACT_APP_API_URL}/api/userSettings/setSettings`, requestOptions)
+  const requestOptions = {
+    method: "post",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(bodyData),
+  };
+
+  fetch(
+    `${process.env.REACT_APP_API_URL}/api/userSettings/setSettings`,
+    requestOptions
+  )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
       if (data.id != null) {
         dispatch({
           type: SET_USER_SETTINGS_SUCCESS,
@@ -56,15 +59,18 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
 
   const requestOptions = {
-    method: 'get',
+    method: "get",
     headers: {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
   console.log(requestOptions);
 
-  fetch(`${process.env.REACT_APP_API_URL}/api/userSettings/getSettings`, requestOptions)
+  fetch(
+    `${process.env.REACT_APP_API_URL}/api/userSettings/getSettings`,
+    requestOptions
+  )
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
@@ -72,22 +78,24 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
           type: GET_USER_SETTINGS_SUCCESS,
           payload: data,
         });
-      } else if (data.isSuccess === false) {
-        console.log(data)
+      } else {
+        dispatch({
+          type: SHOW_OPTIONS_TO_NEW_USER,
+        });
       }
     })
     .catch((err) => {
       throw err;
     });
 };
-export const addUserWorkedHour =  () => (dispatch, getState) => {
+export const addUserWorkedHour = () => (dispatch, getState) => {
   const token = getState().auth.token;
 
   const requestOptions = {
-    method: 'post',
+    method: "post",
     headers: {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
   console.log(requestOptions);
@@ -100,14 +108,14 @@ export const addUserWorkedHour =  () => (dispatch, getState) => {
           type: ADD_USER_WORKING_HOUR,
           payload: data,
         });
-        if(data.NewLevel === true){
+        if (data.NewLevel === true) {
           dispatch({
-            type:USER_NEW_LEVEL,
-            payload:data
-          })
+            type: USER_NEW_LEVEL,
+            payload: data,
+          });
         }
       } else if (data.status !== 200) {
-        console.log(data.isSuccess)
+        console.log(data.isSuccess);
       }
     })
     .catch((err) => {

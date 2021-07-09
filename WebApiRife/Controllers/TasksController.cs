@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rife.Api.Models;
 using Rife.Api.Services;
+using RifeIdentity.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +40,11 @@ namespace Rife.Api.Controllers
             if (idUser != null)
             {
                  var currentUser =  _dbContext.MyUsers.SingleOrDefault(client => client.ID == idUser);
-
-                var result = await _taskService.AddTask(model, idUser);
-
+                var maxTaskOrder = 1;
+                if (_dbContext.Tasks.Any(t=>t.UID == idUser)){
+                    maxTaskOrder = _dbContext.Tasks.Where(t => t.UID == idUser).Max(t => t.Order);
+                };
+                var result = await _taskService.AddTask(model, idUser, maxTaskOrder);
                 _dbContext.Tasks.Add(result);
                 _dbContext.SaveChanges();
                 return Ok(result);
@@ -90,6 +93,53 @@ namespace Rife.Api.Controllers
             return BadRequest("User not found. Please relogin");
 
         }
+        [HttpPut("ChangeTaskOrder")]
+        [Authorize]
+        public async Task<IActionResult> ChangeTaskOrder([FromBody] ChangeTaskOrderModel orders)
+        {
+            var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            if (idUser != null)
+            {
+                object destinationTaskId = orders.DestinationID;
+                string sourceTaskId = orders.SourceID;
+                var destinationTask = _dbContext.Tasks.SingleOrDefault(t => t.ID == destinationTaskId);
+                var sourceTask = _dbContext.Tasks.SingleOrDefault(t => t.ID == sourceTaskId);
+                var newDestOrder = sourceTask.Order;
+                var newSourceOrder = destinationTask.Order;
+
+                if (sourceTask != null)
+                {
+                    destinationTask.Order = newDestOrder;
+                    sourceTask.Order = newSourceOrder;
+                    _dbContext.SaveChanges();
+                    return Ok();
+                }
+                return BadRequest("Task not found. Please relogin");
+
+            }
+            return BadRequest("User not found. Please relogin");
+
+        }
+        [HttpPut("ChangeTaskState")]
+        [Authorize]
+        public async Task<IActionResult> ChangeTaskState([FromBody] MyTask model)
+        {
+            var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
+            if (idUser != null)
+            {
+                string taskId = model.ID;
+                var currentTask = _dbContext.Tasks.SingleOrDefault(t => t.ID == taskId);
+                if (currentTask != null)
+                {
+                    currentTask.State = model.State;
+                    _dbContext.SaveChanges();
+                    return Ok();
+                }
+                return BadRequest("Task not found. Please relogin");
+            }
+            return BadRequest("User not found. Please relogin");
+
+        }
         [HttpPut("PostponeTask")]
         [Authorize]
         public async Task<IActionResult> PostPoneTaskAsync([FromBody] MyTask model)
@@ -101,7 +151,7 @@ namespace Rife.Api.Controllers
                 var currentTask = _dbContext.Tasks.SingleOrDefault(t => t.ID == taskId);
                 if (currentTask != null)
                 {
-                    if(Int32.Parse(model.DayID) > 7)
+                    if(Int32.Parse(model.DayID) <= 7)
                     {
                     currentTask.DayID = model.DayID;
                     _dbContext.SaveChanges();
@@ -115,16 +165,24 @@ namespace Rife.Api.Controllers
         }
         [HttpGet("GetTasks")]
         [Authorize]
-        public async Task<IActionResult> GetTaskAsync()
+        public async Task<ActionResult> GetTaskAsync()
         {
             var idUser = User.Claims.Where(a => a.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
             if (idUser != null)
             {
-                var currentUser = _dbContext.MyUsers.SingleOrDefault(client => client.ID == idUser);
 
-                var userTasks = _dbContext.Tasks.Where(t=> t.UID == idUser);
-                                
-                return Ok(userTasks);
+                var userTasks = _dbContext.Tasks.Where(t=> t.UID == idUser).OrderBy(t=>t.Order);
+
+                if(userTasks != null)
+                {
+                    return Ok(userTasks);
+                };
+                var zeroTasks = new UserManagerResponse
+                {
+                    IsSuccess = false
+                };
+                return Ok(zeroTasks);
+
 
             }
             return BadRequest("User not found. Please relogin");

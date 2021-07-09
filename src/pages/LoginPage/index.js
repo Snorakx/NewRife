@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import store from "../../app/store";
 
 import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router";
+import { Redirect, useLocation } from "react-router";
 import PrimaryBtn from "../../common/components/PrimaryBtn";
 import { loginUser } from "../../state/user/auth/authAction";
 import TextField from "@material-ui/core/TextField";
@@ -13,19 +13,12 @@ import Logo from "../../common/components/logo/logo-lg";
 import "./style.scss";
 
 const LoginScreen = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // useEffect(() => {
-  //   if (store.getState().auth.isAuthenticated === true) {
-  //     history.push("/settings");
-  //   }
-  // });
   const  dispatchLoginAction = async () => {
     dispatch(loginUser(email, password));
-    history.push('/home')
   };
   let isLoggedIn = store.getState().auth.isAuthenticated
   if(isLoggedIn){
@@ -64,7 +57,9 @@ const LoginScreen = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Link to="/home">
           <PrimaryBtn handleClick={dispatchLoginAction}>Zaloguj</PrimaryBtn>
+          </Link>
           <div>
             <CustomLink>
               <Link className="forget-password" to="/passwordReset">

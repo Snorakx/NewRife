@@ -188,7 +188,7 @@ const DefaultSettings = (props) => {
         <PrimaryBtn
           handleClick={handleSettingsSubmit}
         >
-          Przejdź do aplikacji
+          Zapisz ustawienia i przejdź do aplikacji
         </PrimaryBtn>
     </div>
   );

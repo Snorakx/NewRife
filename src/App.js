@@ -10,6 +10,7 @@ import StartScreen from "./pages/StartPage/index";
 import { loadUser } from "./state/user/auth/authAction";
 import SettingsScreen from "./pages/SettingsPage/index";
 import TimerScreen from "./pages/ClockPage";
+import TaskScreen from "./pages/TaskPage";
 
 function App() {
   require('dotenv').config()
@@ -42,6 +43,8 @@ function App() {
         <Route path="/register" component={RegisterScreen} />
         <Route path="/settings" component={SettingsScreen} />
         <Route path="/gold-hour" component={TimerScreen} />
+        <Route path="/tasks" component={TaskScreen} />
+
         <PrivateRoute path="/home" component={HomeScreen}/>
       </Switch>
     </Router>

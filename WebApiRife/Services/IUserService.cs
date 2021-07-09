@@ -12,6 +12,7 @@ using RifeIdentity.Shared;
 using Rife.Api.Models;
 
 
+
 namespace Rife.Api.Services
 {
     public interface IUserService 
@@ -156,17 +157,18 @@ namespace Rife.Api.Services
         }
         public async Task<UserSettingsManagerResponse> GetUserSettingsAsync(Clients model)
         {
-            return new UserSettingsManagerResponse
-            {
-                Monday = model.Monday,
-                Tuesday = model.Tuesday,
-                Wednesday = model.Wednesday,
-                Thursday = model.Thursday,
-                Friday = model.Friday,
-                Saturday = model.Saturday,
-                Sunday = model.Sunday,
-                isSuccess = true
-            };
+                return new UserSettingsManagerResponse
+                {
+                    Monday = model.Monday,
+                    Tuesday = model.Tuesday,
+                    Wednesday = model.Wednesday,
+                    Thursday = model.Thursday,
+                    Friday = model.Friday,
+                    Saturday = model.Saturday,
+                    Sunday = model.Sunday,
+                    isSuccess = true
+                };
+          
         }
 
     }

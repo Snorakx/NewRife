@@ -4,7 +4,7 @@ import './style.scss';
 const BasicText =(props)=> {
   
     return (
-    <div class="text" onClick={props.handleClick}>{props.children}</div> 
+    <div className="text" onClick={props.handleClick}>{props.children}</div> 
     );
   }
 

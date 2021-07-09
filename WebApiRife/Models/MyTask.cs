@@ -17,5 +17,7 @@ namespace Rife.Api.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public bool RepeatTask { get; set; }
+        public string State { get; set; }
+        public int Order { get; set; }
     }
 }
