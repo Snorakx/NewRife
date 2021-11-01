@@ -1,0 +1,31 @@
+@import "../../../App.scss";
+
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height:80px;
+    padding:.2rem 1rem;
+    .avatar_btn{
+        display: flex;
+        align-items: center;
+        flex: 1;
+        height: 100%;
+        width: auto;
+        justify-content: flex-end;
+        img{
+            height:85%;
+            border-radius:50%;
+        }
+    }
+    .sidebar_btn {
+        z-index: 1;
+        background-color: $white-100;
+        flex:1;
+        height:100%;
+        width:auto;
+        display:flex;
+        align-items: center;
+      }
+}

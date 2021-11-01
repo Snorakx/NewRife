@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./style.scss";
-import Logo from "../../components/logo/logo-sm";
 import QueryBuilderOutlinedIcon from "@material-ui/icons/QueryBuilderOutlined";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import PersonIcon from "@material-ui/icons/Person";
@@ -11,6 +10,7 @@ import ChevronRight from "@material-ui/icons/ChevronRight";
 import { Link } from "react-router-dom";
 import store from "../../../app/store";
 import { logoutUser } from "../../../state/user/auth/authAction";
+import Header from "../Header/header";
 
 const Dashboard = (props) => {
   const [flexMenu, setFlexMenu] = useState("1");
@@ -34,20 +34,7 @@ const Dashboard = (props) => {
 
   return (
     <div className="dashboard-wrapper">
-      <div>
-        <label>
-          <div id="sidebar_btn">
-            <Logo />
-          </div>
-        </label>
-        <a href="#" className="avatar_btn">
-          <img
-            src="https://i.postimg.cc/3x9PcnkX/avatar.png"
-            className="profile_image"
-            alt="logo-rife"
-          />
-        </a>
-      </div>
+      <Header/>
       <div className="flex-row-dashboard-container">
         <div className="sidebar" style={{ flex: flexMenu, minWidth: minWIdth }}>
           <div className="primary-menu-sidebar">

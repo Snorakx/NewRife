@@ -1,57 +1,59 @@
-@import '../../../App.scss';
+@import "../../../App.scss";
 
-.day-box{
-    background-color: $white-200;
-    border-radius:8px;
-    display: flex;
-    width: 90%;
-    float: right;
-    height: 33%;
-    margin-top: 1rem;
-    cursor:pointer;
+.day-box {
+  background-color: $white-200;
+  border-radius: 8px;
+  display: flex;
+  width: 90%;
+  float: right;
+  height: 33%;
+  margin-top: 1rem;
+  cursor: pointer;
 
-.container {
+  .container {
     margin: auto;
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
+  }
 
-.progress {
-  padding: 0;
-  background: $primary-100;
-  border-radius: $round-border;
-  box-shadow: inset 0 1px 2px $primary-200, 0 1px $primary-100 ;
-}
+  .progress {
+    padding: 0;
+    background: $primary-100;
+    border-radius: $round-border;
+    box-shadow: inset 0 1px 2px $primary-200, 0 1px $primary-100;
+  }
 
-.progress-bar {	
-  height: 25px; 
-  border-radius: $round-border; 
-  transition: 0.4s linear;  
-  transition-property: width, background-color;    
-}
+  .progress-bar {
+    height: 25px;
+    border-radius: $round-border;
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+  }
 
-.progress-striped .progress-bar { 	
-  background-color: #FFDA58; 
-  width:auto;
-  background-image: linear-gradient(
-        45deg, #FFE58A 25%, 
-        transparent 25%, transparent 50%, 
-        #FFE58A  50%, #FFE58A  75%,
-        transparent 75%, transparent); 
-  animation: progressAnimationStrike 6s;
+  .progress-striped .progress-bar {
+    background-color: #ffda58;
+    width: auto;
+    background-image: linear-gradient(
+      45deg,
+      #ffe58a 25%,
+      transparent 25%,
+      transparent 50%,
+      #ffe58a 50%,
+      #ffe58a 75%,
+      transparent 75%,
+      transparent
+    );
+    animation: progressAnimationStrike 6s;
+  }
 }
-
- 
-}
-.day-container{
-  width:100%;
-  height:100%;
-  display:flex;
+.day-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
 }
-    

@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.scss";
@@ -13,11 +13,10 @@ import TimerScreen from "./pages/ClockPage";
 import TaskScreen from "./pages/TaskPage";
 
 function App() {
-  require('dotenv').config()
+  require("dotenv").config();
   useEffect(() => {
     store.dispatch(loadUser());
   });
-
 
   function PrivateRoute({ component: Component, authed, ...rest }) {
     return (
@@ -38,15 +37,14 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={StartScreen} />
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/register" component={RegisterScreen} />
-        <Route path="/settings" component={SettingsScreen} />
-        <Route path="/gold-hour" component={TimerScreen} />
-        <Route path="/tasks" component={TaskScreen} />
-
-        <PrivateRoute path="/home" component={HomeScreen}/>
-      </Switch>
+        <Route exact path="/" component={StartScreen} />{" "}
+        <Route path="/login" component={LoginScreen} />{" "}
+        <Route path="/register" component={RegisterScreen} />{" "}
+        <Route path="/settings" component={SettingsScreen} />{" "}
+        <Route path="/gold-hour" component={TimerScreen} />{" "}
+        <Route path="/tasks" component={TaskScreen} />{" "}
+        <PrivateRoute path="/home" component={HomeScreen} />{" "}
+      </Switch>{" "}
     </Router>
   );
 }
