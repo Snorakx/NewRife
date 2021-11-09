@@ -17,17 +17,18 @@ let isNewUser = store.getState().hours.isNewUser;
 
 
 
-  if(!isLoggedIn){
-    return <Redirect to="/"/>
-  }else if(!isNewUser){
+  // if(!isLoggedIn){
+  //   return <Redirect to="/"/>
+  // }else if(!isNewUser){
   return(
     <Dashboard><DayContainer/></Dashboard>
-  )}else{
-    return(
-      <Redirect to="/settings"/>
-    )
-  }
+  )}
+  // else{
+  //   return(
+  //     <Redirect to="/settings"/>
+  //   )
+  // }
 
-};
+// };
 
 export default HomeScreen;

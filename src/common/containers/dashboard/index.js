@@ -6,6 +6,7 @@ import DateRangeIcon from "@material-ui/icons/DateRange";
 import PersonIcon from "@material-ui/icons/Person";
 import ViewWeekIcon from "@material-ui/icons/ViewWeek";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import LogoutIcon from '@mui/icons-material/Logout';
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import { Link } from "react-router-dom";
 import store from "../../../app/store";
@@ -24,7 +25,7 @@ const Dashboard = (props) => {
       setminWIdth("100px");
     } else {
       setFlexMenu("1");
-      setminWIdth("200px");
+      setminWIdth("300px");
     }
   };
 
@@ -34,9 +35,20 @@ const Dashboard = (props) => {
 
   return (
     <div className="dashboard-wrapper">
-      <Header/>
+      <Header />
       <div className="flex-row-dashboard-container">
         <div className="sidebar" style={{ flex: flexMenu, minWidth: minWIdth }}>
+          <div className="primary-menu-sidebar-bottom">
+            {flexMenu === "1" ? (
+              <button onClick={() => toggleMenu()}>
+                <ChevronLeft className="close-menu-button" />
+              </button>
+            ) : (
+              <button onClick={() => toggleMenu()}>
+                <ChevronRight className="close-menu-button" />
+              </button>
+            )}
+          </div>
           <div className="primary-menu-sidebar">
             <Link to="/home">
               <i>
@@ -64,21 +76,10 @@ const Dashboard = (props) => {
             </a>
             <a onClick={LogoutUser} href="/">
               <i>
-                <PersonIcon />
+                <LogoutIcon />
               </i>
               {flexMenu === "1" ? <span>Wyloguj się</span> : <></>}
             </a>
-          </div>
-          <div className="primary-menu-sidebar-bottom">
-            {flexMenu === "1" ? (
-              <button onClick={() => toggleMenu()}>
-                <ChevronLeft className="close-menu-button" /><span>Zwiń menu</span>
-              </button>
-            ) : (
-              <button onClick={() => toggleMenu()}>
-                <ChevronRight className="close-menu-button" />
-              </button>
-            )}
           </div>
         </div>
         <div className="content">{props.children}</div>

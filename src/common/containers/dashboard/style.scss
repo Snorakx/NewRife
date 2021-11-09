@@ -19,25 +19,28 @@
       flex: 1;
       position: relative;
       transition: 0.1s;
-      min-width: 200px;
+      min-width: 300vw;
       svg {
         font-size: 2rem;
       }
       .primary-menu-sidebar {
         margin: auto;
-        padding: 2rem;
+        padding: 0rem 0rem 0rem 2rem;
         a {
-          color: $primary-200;
+          color: $primary-400;
           display: flex;
           width: 100%;
           white-space: nowrap;
-          line-height: 60px;
+          line-height: 2rem;
           text-decoration: none;
           box-sizing: border-box;
           transition: 0.5s;
           padding: 1rem 0rem;
           &:hover {
-            background: $primary-900;
+            color: $primary-100;
+          }
+          &:focus {
+            color: $white-100;
           }
           i {
             padding-right: 10px;
@@ -48,14 +51,12 @@
       }
       .primary-menu-sidebar-bottom {
         margin: auto;
-        padding: 2rem;
-        margin-top: -3rem;
-        bottom: 2rem;
+        padding: 0rem 0rem 0rem 2rem;
         button {
           display: flex;
           white-space: nowrap;
           align-items: center;
-          color: #dbd7f7;
+          color: $primary-200;
           display: flex;
           width: 100%;
           line-height: 60px;
@@ -72,7 +73,7 @@
           }
         }
         svg {
-          font-size: 3rem !important;
+          font-size: 2rem !important;
         }
       }
     }
@@ -106,14 +107,13 @@ input[type="reset"] {
 }
 
 .content {
-  display: flex;
+ display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
   transition: 0.5s;
   flex: 6 1;
   background-color: $white-300;
-  padding-top: 1rem;
   overflow-y: scroll;
 }
 
