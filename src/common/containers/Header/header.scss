@@ -5,8 +5,11 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    max-height:80px;
+    max-height:10vh;
     padding:.2rem 1rem;
+    box-shadow: -2px 2px 15px 0px rgba(46, 24, 187, 0.151);
+
+
     .avatar_btn{
         display: flex;
         align-items: center;

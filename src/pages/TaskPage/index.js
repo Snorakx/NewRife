@@ -45,14 +45,11 @@ const TaskScreen = (props) => {
     console.log(props.tasksList[result.source.index].order);
 
     dispatch(dragAndDrop(items, props.tasksList[result.source.index].id, props.tasksList[result.destination.index].id))
-    //zrobić to w reducerze :) akcja zaczęta, pozniej zagrac meczyk w lolka :))
   };
 
   const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
     userSelect: "none",
-    // change background colour if dragging
-    // styles we need to apply on draggables
+
   });
 
 
@@ -74,12 +71,12 @@ const TaskScreen = (props) => {
           val={input}
           onChng={(e) => setInput(e.target.value)}
         />
-        <input
+        {/* <input
           type="checkbox"
           value={repeatTask}
           onChange={(e) => setRepeatTask(e.target.checked)}
           label="Powtórz zadanie co tydzień"
-        ></input>
+        ></input> */}
             <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="droppable">
             {(provided, snapshot) => (
