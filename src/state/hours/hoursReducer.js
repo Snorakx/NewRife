@@ -4,14 +4,14 @@ import {
   GET_USER_SETTINGS_SUCCESS,
   ADD_USER_WORKING_HOUR,
   USER_NEW_LEVEL,
-  SHOW_OPTIONS_TO_NEW_USER
+  SHOW_OPTIONS_TO_NEW_USER,
 } from "../hours/hoursTypes";
 
 const initialState = {
   settingsAdded: false,
   workedHours: 0,
-  level:0,
-  isNewUser:false
+  level: 0,
+  isNewUser: false,
 };
 
 export default function hourReducerFunction(state = initialState, action) {
@@ -20,8 +20,7 @@ export default function hourReducerFunction(state = initialState, action) {
       return {
         ...state,
         settingsAdded: true,
-        isNewUser: false
-
+        isNewUser: false,
       };
     case SET_USER_SETTINGS_FAILED:
       return {
@@ -40,26 +39,25 @@ export default function hourReducerFunction(state = initialState, action) {
         sunday: action.payload.sunday,
       };
     case ADD_USER_WORKING_HOUR:
-      console.log(action.payload.workedHours)
+      console.log(action.payload.workedHours);
       return {
         ...state,
         wordkedHours: action.payload.workedHours,
         level: action.payload.level,
-
       };
-      case USER_NEW_LEVEL:
-      console.log(action.payload.Message)
+    case USER_NEW_LEVEL:
+      console.log(action.payload.Message);
       return {
         ...state,
         wordkedHours: action.payload.workedHours,
         level: action.payload.level,
-        message: action.payload.message
+        message: action.payload.message,
       };
-      case SHOW_OPTIONS_TO_NEW_USER:
-        return{
-          ...state,
-          isNewUser: true
-        }
+    case SHOW_OPTIONS_TO_NEW_USER:
+      return {
+        ...state,
+        isNewUser: true,
+      };
     default:
       return state;
   }

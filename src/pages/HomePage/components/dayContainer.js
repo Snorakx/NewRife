@@ -23,7 +23,7 @@ const DayContainer = (props) => {
 
   return (
     <div className="day-container">
-      {daysList.map((item, i) => {
+      {daysList.map((item) => {
         return (
           <DayBox
             handleClick={() => openTasksForSimpleDay(item.ID)}

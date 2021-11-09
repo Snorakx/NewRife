@@ -65,7 +65,11 @@ namespace Rife.Api.Controllers
                 {
                     _dbContext.Tasks.Remove(currentTask);
                     _dbContext.SaveChanges();
-                    return Ok();
+                    var successfullyDelete = new UserManagerResponse
+                    {
+                        IsSuccess = true
+                    };
+                    return Ok(successfullyDelete);
                 }
                 return BadRequest("Task not found. Please relogin");
             }

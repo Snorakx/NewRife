@@ -16,16 +16,27 @@
     }
     .sidebar {
       background: $primary-1000;
-      flex: 1;
       position: relative;
       transition: 0.1s;
       min-width: 300vw;
+      flex:.5!important;
+      order:2;
+      @media (min-width: 700px) {
+      order:initial;
+      flex: 1;
+
+      }
       svg {
         font-size: 2rem;
       }
       .primary-menu-sidebar {
+        display:flex;
+        flex-direction: row;
         margin: auto;
         padding: 0rem 0rem 0rem 2rem;
+        @media (min-width: 700px) {
+          flex-direction: column;
+          }
         a {
           color: $primary-400;
           display: flex;
@@ -47,11 +58,21 @@
             display: flex;
             align-items: center;
           }
+          span{
+            display:none;
+            @media (min-width: 700px) {
+              display: block;
+              }
+          }
         }
       }
       .primary-menu-sidebar-bottom {
         margin: auto;
         padding: 0rem 0rem 0rem 2rem;
+        display:none;
+        @media (min-width: 700px) {
+        display:block;
+        }
         button {
           display: flex;
           white-space: nowrap;

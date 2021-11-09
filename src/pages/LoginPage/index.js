@@ -17,17 +17,17 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const  dispatchLoginAction = async () => {
+  const dispatchLoginAction = async () => {
     dispatch(loginUser(email, password));
   };
-  let isLoggedIn = store.getState().auth.isAuthenticated
-  if(isLoggedIn){
-    return <Redirect to="/home"/>
-  }else{
-  return(   
-    <Container component="main" maxWidth="xs">
+  let isLoggedIn = store.getState().auth.isAuthenticated;
+  if (isLoggedIn) {
+    return <Redirect to="/home" />;
+  } else {
+    return (
+      <Container component="main" maxWidth="xs">
         <form autoComplete="off">
-        <Logo />
+          <Logo />
           <TextField
             className="form-input"
             id="e-mail"
@@ -58,7 +58,7 @@ const LoginScreen = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Link to="/home">
-          <PrimaryBtn handleClick={dispatchLoginAction}>Zaloguj</PrimaryBtn>
+            <PrimaryBtn handleClick={dispatchLoginAction}>Zaloguj</PrimaryBtn>
           </Link>
           <div>
             <CustomLink>
@@ -73,8 +73,8 @@ const LoginScreen = () => {
             </CustomLink>
           </div>
         </form>
-    </Container>
-  );
+      </Container>
+    );
   }
 };
 
