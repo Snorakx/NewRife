@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\patry\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {}
+    "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\patry\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
+    "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\patry\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
         "projectName": "RifeIdentity.Shared",
-        "projectPath": "C:\\Users\\patry\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+        "projectPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
         "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\patry\\Desktop\\NewRife\\RifeIdentity\\obj\\",
+        "outputPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
