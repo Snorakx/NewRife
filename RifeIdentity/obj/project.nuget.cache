@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hoiArvMh7ADL6wzywt8sOnNiTs23SZSIq13eANC2zTd3i+ba0PK7IVK8aR0mefsVEd4UPJiYEqQJ2M7I/PAe3A==",
+  "dgSpecHash": "WwEmPrFSCA7xjdLGbKWnN2ao3sRUYTY99hP65RcbHX4Rywq69vwBcmEwBjiXEOrxZro8ug8xeD5LeBa6g8Kz8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\patry\\Desktop\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+  "projectFilePath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\patry\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\patry\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\patry\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\oliwi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\oliwi\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
