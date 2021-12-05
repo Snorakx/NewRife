@@ -9,54 +9,53 @@
   justify-content: flex-start;
   flex-direction: column;
 
-.day-box {
-  background-color: $white-200;
-  border-radius: 5px;
-  display: flex;
-  width: 95%;
-  float: right;
-  cursor: pointer;
-  box-shadow: -2px 2px 10px 0px rgba(46, 24, 187, 0.05);
-  padding: 1.5rem 0rem;
-  margin: 1rem;
-
-
-  .container {
-    margin: auto;
-    width: 95%;
-    height: 100%;
+  .day-box {
+    background-color: $white-200;
+    border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
+    width: 95%;
+    float: right;
+    cursor: pointer;
+    box-shadow: -2px 2px 10px 0px rgba(46, 24, 187, 0.05);
+    padding: 1.5rem 0rem;
+    margin: 1rem;
 
-  .progress {
-    padding: 0;
-    background: $primary-100;
-    border-radius: $round-border;
-  }
+    .container {
+      margin: auto;
+      width: 95%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
 
-  .progress-bar {
-    height: 25px;
-    border-radius: $round-border;
-    transition: 0.4s linear;
-    transition-property: width, background-color;
-  }
+    .progress {
+      padding: 0;
+      background: $primary-100;
+      border-radius: $round-border;
+    }
 
-  .progress-striped .progress-bar {
-    background-color: $accent-100;
-    width: auto;
-    background-image: linear-gradient(
-      45deg,
-      #ffe58a 25%,
-      transparent 25%,
-      transparent 50%,
-      #ffe58a 50%,
-      #ffe58a 75%,
-      transparent 75%,
-      transparent
-    );
-    animation: progressAnimationStrike 6s;
+    .progress-bar {
+      height: 25px;
+      border-radius: $round-border;
+      transition: 0.4s linear;
+      transition-property: width, background-color;
+    }
+
+    .progress-striped .progress-bar {
+      background-color: $accent-100;
+      width: auto;
+      background-image: linear-gradient(
+        45deg,
+        #ffe58a 25%,
+        transparent 25%,
+        transparent 50%,
+        #ffe58a 50%,
+        #ffe58a 75%,
+        transparent 75%,
+        transparent
+      );
+      animation: progressAnimationStrike 6s;
+    }
   }
-}
 }

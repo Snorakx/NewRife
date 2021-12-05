@@ -286,11 +286,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
       "projectName": "RifeIdentity.Shared",
       "projectPath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
       "packagesPath": "C:\\Users\\oliwi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+      "projectName": "RifeIdentity.Shared",
+      "projectPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+      "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\obj\\",
+>>>>>>> 8392644de71d240160bfb32e9ecdf423bd647af6
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

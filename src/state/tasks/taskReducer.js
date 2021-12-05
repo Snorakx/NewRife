@@ -1,79 +1,85 @@
 import { PlaylistAddOutlined } from "@material-ui/icons";
 import {
-    ADD_TASK,
-    ADD_TASK_SUCCESS,
-    ADD_TASK_FAILED,
-    EDIT_TASK,
-    EDIT_TASK_SUCCESS,
-    EDIT_TASK_FAILED,
-    DELETE_TASK,
-    DELETE_TASK_SUCCESS,
-    DELETE_TASK_FAILED,
-    GET_TASKS,
-    GET_TASKS_SUCCESS,
-    GET_TASKS_FAILED,
-    DRAG_AND_DROP
-  } from "../tasks/taskTypes";
+  ADD_TASK,
+  ADD_TASK_SUCCESS,
+  ADD_TASK_FAILED,
+  EDIT_TASK,
+  EDIT_TASK_SUCCESS,
+  EDIT_TASK_FAILED,
+  DELETE_TASK,
+  DELETE_TASK_SUCCESS,
+  DELETE_TASK_FAILED,
+  GET_TASKS,
+  GET_TASKS_SUCCESS,
+  GET_TASKS_FAILED,
+  DRAG_AND_DROP,
+} from "../tasks/taskTypes";
 
-  const initialState = {
-    loadingTasks:false,
-    tasksLoaded:false,
-    tasksList:[],
-    addingTask:false,
-    addTaskSuccess:false
-  };
+const initialState = {
+  loadingTasks: false,
+  tasksLoaded: false,
+  tasksList: [],
+  addingTask: false,
+  addTaskSuccess: false,
+};
 
-  export default function hourReducerFunction(state = initialState, action) {
-    switch (action.type) {
-      case GET_TASKS:
-        return {
+export default function taskReducerFunction(state = initialState, action) {
+  switch (action.type) {
+    case GET_TASKS:
+      return {
         ...state,
-        loadingTasks:true,
-        tasksLoaded:false,
-        tasksList: action.payload
-        };
+        loadingTasks: true,
+        tasksLoaded: false,
+      };
     case GET_TASKS_SUCCESS:
-        return {
+      return {
         ...state,
-        loadingTasks:false,
-        tasksLoaded:true,
-        tasksList: action.payload
-        };
+        loadingTasks: false,
+        tasksLoaded: true,
+        tasksList: action.payload,
+      };
     case GET_TASKS_FAILED:
-        return {
+      return {
         ...state,
-        laodingTasks:false,
-        tasksLoaded:false,
-        };
-      case ADD_TASK:
-        return {
+        laodingTasks: false,
+        tasksLoaded: false,
+      };
+    case ADD_TASK:
+      return {
         ...state,
-        loadingTasks:true,
-        addingTask:false,
-        tasksLoaded:false,
-        };
+        loadingTasks: true,
+        addingTask: false,
+        tasksLoaded: false,
+      };
     case ADD_TASK_SUCCESS:
-      console.log(action.payload)
-        return {
+      return {
         ...state,
-        addingTask:false,
-        addTaskSuccess:true,
-        tasksList: [action.payload, ...state.tasksList]
-        };
+        addingTask: false,
+        addTaskSuccess: true,
+        tasksList: [action.payload, ...state.tasksList],
+      };
     case ADD_TASK_FAILED:
-        return {
+      return {
         ...state,
-        laodingTasks:false,
-        tasksLoaded:false,
-        addTaskSuccess:false,
-        };
-      case DRAG_AND_DROP:
-        return {
+        laodingTasks: false,
+        tasksLoaded: false,
+        addTaskSuccess: false,
+      };
+    case DRAG_AND_DROP:
+      return {
         ...state,
-        tasksList: [...action.payload]
-        };
+        tasksList: [...action.payload],
+      };
+    case DELETE_TASK:
+      const tempList = state.tasksList.filter(
+        (item) => item.id !== action.payload
+      );
+      return {
+        ...state,
+        tasksList: tempList,
+      };
+
     default:
-        return state;
-    }
+      return state;
   }
-  
+}

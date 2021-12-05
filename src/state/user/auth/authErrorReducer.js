@@ -1,11 +1,11 @@
-import { GET_ERRORS, CLEAR_ERRORS } from '../auth/authTypes';
+import { GET_ERRORS, CLEAR_ERRORS } from "../auth/authTypes";
 
 const initialState = {
   msg: {},
   status: null,
   id: null,
 };
-export default function authErrorReducer (state = initialState, action) {
+export default function authErrorReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ERRORS:
       return {

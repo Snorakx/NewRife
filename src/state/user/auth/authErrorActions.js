@@ -1,4 +1,4 @@
-import { GET_ERRORS, CLEAR_ERRORS } from '../auth/authTypes';
+import { GET_ERRORS, CLEAR_ERRORS } from "../auth/authTypes";
 
 export const returnErrors = (message, status, id) => {
   return {

@@ -1,21 +1,16 @@
-export const ADD_TASK = 'ADD_TASK';
-export const ADD_TASK_SUCCESS = 'ADD_TASK_SUCCESS';
-export const ADD_TASK_FAILED = 'ADD_TASK_FAILED';
+export const ADD_TASK = "ADD_TASK";
+export const ADD_TASK_SUCCESS = "ADD_TASK_SUCCESS";
+export const ADD_TASK_FAILED = "ADD_TASK_FAILED";
 
-export const EDIT_TASK = 'EDIT_TASK';
-export const EDIT_TASK_SUCCESS = 'EDIT_TASK_SUCCESS';
-export const EDIT_TASK_FAILED = 'EDIT_TASK_FAILED';
+export const EDIT_TASK = "EDIT_TASK";
+export const EDIT_TASK_SUCCESS = "EDIT_TASK_SUCCESS";
+export const EDIT_TASK_FAILED = "EDIT_TASK_FAILED";
 
-export const DELETE_TASK = 'DELETE_TASK';
-export const DELETE_TASK_SUCCESS = 'DELETE_TASK_SUCCESS';
-export const DELETE_TASK_FAILED = 'DELETE_TASK_FAILED';
+export const DELETE_TASK = "DELETE_TASK";
+export const DELETE_TASK_SUCCESS = "DELETE_TASK_SUCCESS";
+export const DELETE_TASK_FAILED = "DELETE_TASK_FAILED";
 
-export const GET_TASKS = 'GET_TASKS';
-export const GET_TASKS_SUCCESS = 'GET_TASKS_SUCCESS';
-export const GET_TASKS_FAILED = 'GET_TASKS_FAILED';
-export const DRAG_AND_DROP = 'DRAG_AND_DROP';
-
-
-
-
-
+export const GET_TASKS = "GET_TASKS";
+export const GET_TASKS_SUCCESS = "GET_TASKS_SUCCESS";
+export const GET_TASKS_FAILED = "GET_TASKS_FAILED";
+export const DRAG_AND_DROP = "DRAG_AND_DROP";

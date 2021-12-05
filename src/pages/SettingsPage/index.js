@@ -7,7 +7,7 @@ import PrimaryBtn from "../../common/components/PrimaryBtn/index";
 import "./style.scss";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {setSettings} from "../../state/hours/hoursAction";
+import { setSettings } from "../../state/hours/hoursAction";
 
 const marks = [
   {
@@ -74,18 +74,23 @@ const DefaultSettings = (props) => {
       hoursPerSunday,
     };
 
-    const hoursSum = hoursPerMonday+hoursPerTuesday+hoursPerWednesday+hoursPerThursday+hoursPerFriday+hoursPerSaturday+hoursPerSunday
-    
-    if (hoursSum > 48 ) {
-      console.log(hoursSum)
-    }
-    else {
-      dispatch(setSettings(hoursPerDay)); 
-      history.push("/home")
+    const hoursSum =
+      hoursPerMonday +
+      hoursPerTuesday +
+      hoursPerWednesday +
+      hoursPerThursday +
+      hoursPerFriday +
+      hoursPerSaturday +
+      hoursPerSunday;
+
+    if (hoursSum > 48) {
+      console.log(hoursSum);
+    } else {
+      dispatch(setSettings(hoursPerDay));
+      history.push("/home");
     }
   };
 
-  
   return (
     <div className="box">
       <Logo />
@@ -185,11 +190,9 @@ const DefaultSettings = (props) => {
         onChange={(e) => setHoursPerSunday(e.target.value)}
       />
 
-        <PrimaryBtn
-          handleClick={handleSettingsSubmit}
-        >
-          Zapisz ustawienia i przejdź do aplikacji
-        </PrimaryBtn>
+      <PrimaryBtn handleClick={handleSettingsSubmit}>
+        Zapisz ustawienia i przejdź do aplikacji
+      </PrimaryBtn>
     </div>
   );
 };

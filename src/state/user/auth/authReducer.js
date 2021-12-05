@@ -7,16 +7,16 @@ import {
   LOGIN_FAILED,
   REGISTER_FAIL,
   LOGOUT_SUCCESS,
-} from '../auth/authTypes';
+} from "../auth/authTypes";
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem("token"),
   isAuthenticated: null,
   isLoading: false,
   user: null,
 };
 
-export default function authReducerFunction (state = initialState, action) {
+export default function authReducerFunction(state = initialState, action) {
   switch (action.type) {
     case USER_LOADING:
       return {
@@ -32,7 +32,7 @@ export default function authReducerFunction (state = initialState, action) {
       };
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      localStorage.setItem('token', action.payload.message);
+      localStorage.setItem("token", action.payload.message);
       return {
         ...state,
         ...action.payload,
@@ -44,7 +44,7 @@ export default function authReducerFunction (state = initialState, action) {
     case LOGIN_FAILED:
     case LOGOUT_SUCCESS:
     case REGISTER_FAIL:
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       return {
         ...state,
         token: null,
@@ -52,7 +52,7 @@ export default function authReducerFunction (state = initialState, action) {
         isAuthenticated: false,
         isLoading: false,
       };
-      
+
     default:
       return state;
   }

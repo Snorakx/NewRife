@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\oliwi\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
         "packagesPath": "C:\\Users\\oliwi\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\obj\\",
+=======
+    "C:\\Users\\patry\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+        "projectName": "RifeIdentity.Shared",
+        "projectPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
+        "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\obj\\",
+>>>>>>> 8392644de71d240160bfb32e9ecdf423bd647af6
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -69,6 +83,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\oliwi\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -77,6 +92,16 @@
         "projectPath": "C:\\Users\\oliwi\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj",
         "packagesPath": "C:\\Users\\oliwi\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\oliwi\\Documents\\NewRife\\WebApiRife\\obj\\",
+=======
+    "C:\\Users\\patry\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\patry\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj",
+        "projectName": "Rife.Api",
+        "projectPath": "C:\\Users\\patry\\Documents\\NewRife\\WebApiRife\\Rife.Api.csproj",
+        "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\patry\\Documents\\NewRife\\WebApiRife\\obj\\",
+>>>>>>> 8392644de71d240160bfb32e9ecdf423bd647af6
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -97,8 +122,13 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
                 "projectPath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj"
+=======
+              "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj": {
+                "projectPath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj"
+>>>>>>> 8392644de71d240160bfb32e9ecdf423bd647af6
               }
             }
           }
