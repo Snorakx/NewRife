@@ -17,7 +17,7 @@ export const SettingsButton = (props) => {
 
     return (
         <div>
-        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        <Button className="settings-btn" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
           {props.children}
         </Button>
         <Menu

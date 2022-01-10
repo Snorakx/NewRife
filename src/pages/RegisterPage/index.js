@@ -18,10 +18,49 @@ const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [c_password, setC_Password] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  const [isErrorEmail, setIsErrorEmail] = useState(false);
+  const [isErrorPassword, setIsErrorPassword] = useState(false);
+  const [isErrorConfirmPassword, setIsErrorConfirmPassword] = useState(false);
+  const [errorMessageEmail, setErrorMessageEmail] = useState("");
+  const [errorMessagePassword, setErrorMessagePassword] = useState("");
+  const [errorMessageConfirmPassword, setErrorMessageConfirmPassword] = useState("");
+
+  const handleError = () => {
+    const errMsgList = store.getState().error.errorsList;
+
+    if('Email' in errMsgList) {
+      setIsErrorEmail(true);
+      setErrorMessageEmail(errMsgList.Email[1])
+    } else {
+      setIsErrorEmail(false)
+    }
+    
+    if (errMsgList.Password){
+      setIsErrorPassword(true)
+      setErrorMessagePassword(errMsgList.Password[1])
+    } else {
+      setIsErrorPassword(false)
+    }
+
+    if (errMsgList.ConfirmPassword){
+      setIsErrorConfirmPassword(true)
+      setErrorMessageConfirmPassword(errMsgList.ConfirmPassword[1])
+    } else {
+      setIsErrorConfirmPassword(false)
+    }
+
+    console.log(errMsgList);
+    // return errMsgList ? errMsgList : ''
+  };
 
   const registerUser = () => {
     dispatch(RegisterUser(email, password, c_password));
+    // setErrorMessage(handleError)
+    handleError();
   };
+
   let isLoggedIn = store.getState().auth.isAuthenticated;
   if (isLoggedIn) {
     return <Redirect to="/home" />;
@@ -44,6 +83,8 @@ const RegisterScreen = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={isErrorEmail}
+            helperText={errorMessageEmail.toString()}
           />
           <TextField
             className="form-input"
@@ -56,6 +97,8 @@ const RegisterScreen = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={isErrorPassword}
+            helperText={errorMessagePassword.toString()}
           />
           <TextField
             className="form-input"
@@ -70,6 +113,8 @@ const RegisterScreen = () => {
             type="password"
             value={c_password}
             onChange={(e) => setC_Password(e.target.value)}
+            error={isErrorConfirmPassword}
+            helperText={errorMessageConfirmPassword.toString()}
           />
           <PrimaryBtn
             className="second-register-btn"

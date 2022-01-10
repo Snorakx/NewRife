@@ -16,17 +16,34 @@ const LoginScreen = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  
+  const handleError = () => {
+    const errMsg = store.getState().error.msg;
+
+    if(errMsg.length) {
+      setIsError(true)
+    }
+
+    return errMsg ? errMsg : ''
+  };
 
   const dispatchLoginAction = async () => {
     dispatch(loginUser(email, password));
   };
+
+  const login = async () => {
+    dispatchLoginAction().then(setErrorMessage(handleError));
+  }
+
   let isLoggedIn = store.getState().auth.isAuthenticated;
   if (isLoggedIn) {
     return <Redirect to="/home" />;
   } else {
     return (
       <Container component="main" maxWidth="xs">
-        <form autoComplete="off">
+        <form autoComplete="off" >
           <Logo />
           <TextField
             className="form-input"
@@ -41,6 +58,7 @@ const LoginScreen = () => {
             autoFocus
             type="email"
             value={email}
+            error={isError}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
@@ -55,15 +73,17 @@ const LoginScreen = () => {
             autoFocus
             type="password"
             value={password}
+            error={isError}
+            helperText={errorMessage.toString()}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Link to="/home">
-            <PrimaryBtn handleClick={dispatchLoginAction}>Zaloguj</PrimaryBtn>
-          </Link>
+          {/* <Link to="/home"> */}
+            <PrimaryBtn handleClick={login}>Zaloguj</PrimaryBtn>
+          {/* </Link> */}
           <div>
             <CustomLink>
               <Link className="forget-password" to="/passwordReset">
-                Zapomniałeś hasła?{" "}
+                Zapomniałeś hasła?
               </Link>
             </CustomLink>
             <CustomLink>

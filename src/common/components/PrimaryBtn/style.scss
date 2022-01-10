@@ -5,9 +5,9 @@
     box-sizing: border-box;
     text-align: center;
     margin: auto;
-    margin-top:  10%;
-    margin-bottom: 10%;
-    padding: $padding-btn;
+    margin-top:  1.5em;
+    margin-bottom: 1.5em;
+    padding: 1em 1.5em;
     font-weight: $font-regular;
     background-color: $primary-1000;
     color: $white-100;
@@ -16,7 +16,9 @@
     font-size: $font-size-sm;
     border-radius: $round-border;
     transition: $transition-btn;
-    width: 100%;
+    width:100%;
+    border:none;
+    outline:none;
     }
     
     .primary-btn:hover {

@@ -3,9 +3,9 @@ import "./style.scss";
 
 const Checkbox = () => {
   return (
-<div class="container">
+<div className="container">
     <input type="checkbox" id="checkbox" />
-    <label for="checkbox" class="check-box"></label>
+    <label for="checkbox" className="check-box"></label>
 </div>
   );
 };

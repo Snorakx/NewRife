@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 const CustomInput = (props) => {
   return (
     <div className="my-input">
-      <div class="container">
+      <div className="container">
         <TextField
           id="outlined-secondary"
           label="Dodaj nowe zadanie"

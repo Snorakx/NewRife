@@ -68,7 +68,7 @@ const Dashboard = (props) => {
               </i>
               {flexMenu === "1" ? <span>Kalendarz</span> : <></>}
             </a>
-            <a href="#">
+            <a href="/user">
               <i>
                 <PersonIcon />
               </i>

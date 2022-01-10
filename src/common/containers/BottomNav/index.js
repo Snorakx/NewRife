@@ -7,8 +7,8 @@ import PersonIcon from '@material-ui/icons/Person';
 
 const BottomNavigation = () => {
   return (
-    <div class="navbar">
-      <a href="#home" class="active">
+    <div className="navbar">
+      <a href="#home" className="active">
 	  <HomeRoundedIcon />
       </a>
       <a href=""><QueryBuilderOutlinedIcon /></a>

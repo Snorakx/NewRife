@@ -1,9 +1,9 @@
 import { GET_ERRORS, CLEAR_ERRORS } from "../auth/authTypes";
 
-export const returnErrors = (message, status, id) => {
+export const returnErrors = (message, errors) => {
   return {
     type: GET_ERRORS,
-    payload: { message, status, id },
+    payload: {message, errors},
   };
 };
 export const clearErrors = () => {

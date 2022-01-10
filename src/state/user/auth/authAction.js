@@ -38,7 +38,7 @@ export const loadUser = () => (dispatch, getState) => {
         dispatch(getSettings());
         dispatch(getTasks());
       } else if (data.status !== 200) {
-        dispatch(returnErrors(data.errors, data.title, data.traceId));
+        dispatch(returnErrors(data.title, data.errors));
       }
     })
     .catch((err) => {
@@ -74,8 +74,8 @@ export const loginUser = (email, password) => (dispatch, getState) => {
 
         dispatch(clearErrors());
       } else if (data.status !== 200) {
-        dispatch(returnErrors(data.errors, data.title, data.traceId));
-        console.log(data);
+        dispatch(returnErrors(data.title, data.errors));
+        return data.title;
       }
     })
     .catch((err) => {
@@ -114,7 +114,7 @@ export const RegisterUser =
             type: REGISTER_FAIL,
             payload: data,
           });
-          dispatch(returnErrors(data.errors, data.title, data.traceId));
+          dispatch(returnErrors(data.title, data.errors));
           console.log(data);
         }
       })

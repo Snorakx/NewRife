@@ -12,7 +12,7 @@ const HomeScreen = () => {
 
   if (!isLoggedIn) {
     return <Redirect to="/" />;
-  } else if (!isNewUser) {
+  } else if (isNewUser) {
     return (
       <Dashboard>
         <DayContainer />

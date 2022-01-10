@@ -4,7 +4,7 @@ import './style.scss';
 const Title =(props)=> {
   
     return (
-    <div class="text-title" onClick={props.handleClick}>{props.children}</div> 
+    <div className="text-title" onClick={props.handleClick}>{props.children}</div> 
     );
   }
 

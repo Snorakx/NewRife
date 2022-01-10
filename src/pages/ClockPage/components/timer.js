@@ -59,9 +59,9 @@ const TimerComponent = () => {
         {...timerProps}
         
         colors={[
-          ["#FFDA58", 0.33],
-          ["#FFDA58", 0.33],
-          ["#ff6058", 0.33],
+          ["#FFDA58", 1],
+          ["#FFDA58", 1],
+          ["#ff6058", 1],
         ]}
         duration={hourSeconds}
        onComplete={()=>{onFinish()}}
@@ -77,7 +77,7 @@ const TimerComponent = () => {
           Rozpocznij
         </PrimaryButton>
       ) : (
-        <div>
+        <div className="timer-buttons">
         <SecondaryBtn
           handleClick={() => {
             setIsStarted(false);

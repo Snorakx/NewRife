@@ -1,24 +1,18 @@
 import { GET_ERRORS, CLEAR_ERRORS } from "../auth/authTypes";
 
 const initialState = {
-  msg: {},
-  status: null,
-  id: null,
+  msg: '',
+  errorsList: [],
 };
 export default function authErrorReducer(state = initialState, action) {
   switch (action.type) {
     case GET_ERRORS:
       return {
         msg: action.payload.message,
-        status: action.payload.status,
-        id: action.payload.id,
+        errorsList: action.payload.errors, 
       };
     case CLEAR_ERRORS:
-      return {
-        msg: {},
-        status: null,
-        id: null,
-      };
+      return state;
     default:
       return state;
   }
