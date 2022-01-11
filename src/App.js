@@ -38,15 +38,15 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={StartScreen} />{" "}
-        <Route path="/login" component={LoginScreen} />{" "}
-        <Route path="/register" component={RegisterScreen} />{" "}
-        <Route path="/settings" component={SettingsScreen} />{" "}
-        <Route path="/gold-hour" component={TimerScreen} />{" "}
-        <Route path="/user" component={UserScreen} />{" "}
-        <Route path="/tasks" component={TaskScreen} />{" "}
-        <PrivateRoute path="/home" component={HomeScreen} />{" "}
-      </Switch>{" "}
+        <Route exact path="/" component={StartScreen} />
+        <Route path="/login" component={LoginScreen} />
+        <Route path="/register" component={RegisterScreen} />
+        <Route path="/settings" component={SettingsScreen} />
+        <Route path="/timer" component={TimerScreen} />
+        <Route path="/user" component={UserScreen} />
+        <Route path="/tasks" component={TaskScreen} />
+        <PrivateRoute path="/home" component={HomeScreen} />
+      </Switch>
     </Router>
   );
 }

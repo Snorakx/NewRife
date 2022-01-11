@@ -6,7 +6,7 @@ import DateRangeIcon from "@material-ui/icons/DateRange";
 import PersonIcon from "@material-ui/icons/Person";
 import ViewWeekIcon from "@material-ui/icons/ViewWeek";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import { Link } from "react-router-dom";
 import store from "../../../app/store";
@@ -56,30 +56,30 @@ const Dashboard = (props) => {
               </i>
               {flexMenu === "1" ? <span>Dni tygodnia</span> : <></>}
             </Link>
-            <Link to="/gold-hour">
+            <Link to="/timer">
               <i>
                 <QueryBuilderOutlinedIcon />
               </i>
               {flexMenu === "1" ? <span>Zegar</span> : <></>}
             </Link>
-            <a href="/gold-hour">
+            <Link to="/timer">
               <i>
                 <DateRangeIcon />
               </i>
               {flexMenu === "1" ? <span>Kalendarz</span> : <></>}
-            </a>
-            <a href="/user">
+            </Link>
+            <Link to="/user">
               <i>
                 <PersonIcon />
               </i>
               {flexMenu === "1" ? <span>Twoje konto</span> : <></>}
-            </a>
-            <a onClick={LogoutUser} href="/">
+            </Link>
+            <Link onClick={LogoutUser} to="/">
               <i>
                 <LogoutIcon />
               </i>
               {flexMenu === "1" ? <span>Wyloguj się</span> : <></>}
-            </a>
+            </Link>
           </div>
         </div>
         <div className="content">{props.children}</div>
