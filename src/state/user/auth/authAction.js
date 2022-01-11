@@ -71,11 +71,9 @@ export const loginUser = (email, password) => (dispatch, getState) => {
         });
         dispatch(getSettings());
         dispatch(getTasks());
-
         dispatch(clearErrors());
       } else if (data.status !== 200) {
-        dispatch(returnErrors(data.title, data.errors));
-        return data.title;
+        dispatch(returnErrors(data.message, data.errors));
       }
     })
     .catch((err) => {
