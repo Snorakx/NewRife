@@ -536,3 +536,6 @@ WebApiRife/obj/Rife.Api.csproj.nuget.g.props
 WebApiRife/obj/Debug/netcoreapp3.1/Rife.Api.assets.cache
 WebApiRife/obj/Debug/netcoreapp3.1/Rife.Api.csproj.AssemblyReference.cache
 RifeIdentity/obj/Debug/netstandard2.0/RifeIdentity.Shared.csproj.AssemblyReference.cache
+WebApiRife/appsettings.json
+WebApiRife/bin/Debug/netcoreapp3.1/appsettings.json
+WebApiRife/appsettings.json

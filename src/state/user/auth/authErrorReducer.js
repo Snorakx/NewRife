@@ -1,7 +1,7 @@
 import { GET_ERRORS, CLEAR_ERRORS } from "../auth/authTypes";
 
 const initialState = {
-  msg: '',
+  msg: "",
   errorsList: [],
 };
 export default function authErrorReducer(state = initialState, action) {
@@ -9,7 +9,7 @@ export default function authErrorReducer(state = initialState, action) {
     case GET_ERRORS:
       return {
         msg: action.payload.message,
-        errorsList: action.payload.errors, 
+        errorsList: action.payload.errors,
       };
     case CLEAR_ERRORS:
       return state;

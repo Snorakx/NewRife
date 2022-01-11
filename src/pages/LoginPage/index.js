@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import store from "../../app/store";
-
 import { useDispatch } from "react-redux";
-import { Redirect, useLocation } from "react-router";
+import { Redirect } from "react-router";
 import PrimaryBtn from "../../common/components/PrimaryBtn";
 import { loginUser } from "../../state/user/auth/authAction";
 import TextField from "@material-ui/core/TextField";
@@ -10,32 +9,17 @@ import CustomLink from "../../common/components/CustomLink/index";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import Logo from "../../common/components/logo/logo-lg";
+import { connect } from "react-redux";
 import "./style.scss";
 
-const LoginScreen = () => {
+const LoginScreen = ({ error }) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  
-  const handleError = () => {
-    const errMsg = store.getState().error.msg;
 
-    if(errMsg.length) {
-      setIsError(true)
-    }
-
-    return errMsg ? errMsg : ''
-  };
-
-  const dispatchLoginAction = async () => {
+  const dispatchLoginAction = () => {
     dispatch(loginUser(email, password));
   };
-
-  const login = async () => {
-    dispatchLoginAction().then(setErrorMessage(handleError));
-  }
 
   let isLoggedIn = store.getState().auth.isAuthenticated;
   if (isLoggedIn) {
@@ -43,7 +27,7 @@ const LoginScreen = () => {
   } else {
     return (
       <Container component="main" maxWidth="xs">
-        <form autoComplete="off" >
+        <form autoComplete="off">
           <Logo />
           <TextField
             className="form-input"
@@ -58,7 +42,7 @@ const LoginScreen = () => {
             autoFocus
             type="email"
             value={email}
-            error={isError}
+            error={error.length > 0}
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
@@ -73,12 +57,12 @@ const LoginScreen = () => {
             autoFocus
             type="password"
             value={password}
-            error={isError}
-            helperText={errorMessage.toString()}
+            error={error.length > 0}
+            helperText={error}
             onChange={(e) => setPassword(e.target.value)}
           />
           {/* <Link to="/home"> */}
-            <PrimaryBtn handleClick={login}>Zaloguj</PrimaryBtn>
+          <PrimaryBtn handleClick={dispatchLoginAction}>Zaloguj</PrimaryBtn>
           {/* </Link> */}
           <div>
             <CustomLink>
@@ -98,4 +82,10 @@ const LoginScreen = () => {
   }
 };
 
-export default LoginScreen;
+function mapStateToProps(state) {
+  return {
+    error: state.error.msg,
+  };
+}
+
+export default connect(mapStateToProps)(LoginScreen);
