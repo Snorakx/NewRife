@@ -12,56 +12,25 @@ import Logo from "../../common/components/logo/logo-lg";
 import "./style.scss";
 import store from "../../app/store";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-const RegisterScreen = () => {
+const RegisterScreen = ({
+  errorMainMessage,
+  errorEmail,
+  errorPassword,
+  errorList,
+  errorConfirmPassword,
+  isLoggedIn,
+}) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [c_password, setC_Password] = useState("");
-  const [isError, setIsError] = useState(false);
-
-  const [isErrorEmail, setIsErrorEmail] = useState(false);
-  const [isErrorPassword, setIsErrorPassword] = useState(false);
-  const [isErrorConfirmPassword, setIsErrorConfirmPassword] = useState(false);
-  const [errorMessageEmail, setErrorMessageEmail] = useState("");
-  const [errorMessagePassword, setErrorMessagePassword] = useState("");
-  const [errorMessageConfirmPassword, setErrorMessageConfirmPassword] = useState("");
-
-  const handleError = () => {
-    const errMsgList = store.getState().error.errorsList;
-
-    if('Email' in errMsgList) {
-      setIsErrorEmail(true);
-      setErrorMessageEmail(errMsgList.Email[1])
-    } else {
-      setIsErrorEmail(false)
-    }
-    
-    if (errMsgList.Password){
-      setIsErrorPassword(true)
-      setErrorMessagePassword(errMsgList.Password[1])
-    } else {
-      setIsErrorPassword(false)
-    }
-
-    if (errMsgList.ConfirmPassword){
-      setIsErrorConfirmPassword(true)
-      setErrorMessageConfirmPassword(errMsgList.ConfirmPassword[1])
-    } else {
-      setIsErrorConfirmPassword(false)
-    }
-
-    console.log(errMsgList);
-    // return errMsgList ? errMsgList : ''
-  };
 
   const registerUser = () => {
     dispatch(RegisterUser(email, password, c_password));
-    // setErrorMessage(handleError)
-    handleError();
   };
 
-  let isLoggedIn = store.getState().auth.isAuthenticated;
   if (isLoggedIn) {
     return <Redirect to="/home" />;
   } else {
@@ -83,8 +52,8 @@ const RegisterScreen = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            error={isErrorEmail}
-            helperText={errorMessageEmail.toString()}
+            error={errorEmail?.length > 0 || errorMainMessage?.length > 0}
+            helperText={errorEmail.length > 0 ? errorEmail : errorList}
           />
           <TextField
             className="form-input"
@@ -97,8 +66,8 @@ const RegisterScreen = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            error={isErrorPassword}
-            helperText={errorMessagePassword.toString()}
+            error={errorPassword?.length > 0 || errorMainMessage?.length > 0}
+            helperText={errorPassword.length > 0 ? errorPassword : ""}
           />
           <TextField
             className="form-input"
@@ -113,8 +82,14 @@ const RegisterScreen = () => {
             type="password"
             value={c_password}
             onChange={(e) => setC_Password(e.target.value)}
-            error={isErrorConfirmPassword}
-            helperText={errorMessageConfirmPassword.toString()}
+            error={
+              errorConfirmPassword.length > 0 || errorMainMessage?.length > 0
+            }
+            helperText={
+              errorConfirmPassword.length > 0
+                ? errorConfirmPassword
+                : errorMainMessage
+            }
           />
           <PrimaryBtn
             className="second-register-btn"
@@ -127,21 +102,22 @@ const RegisterScreen = () => {
               Masz już konto? <b>Zaloguj</b>
             </SecondaryBtn>
           </Link>
-          <PrimaryBtn
-            className="second-register-btn"
-            handleClick={registerUser}
-          >
-            Zarejestruj
-          </PrimaryBtn>
-          <Link to="/">
-            <CustomLink>
-              Masz już konto? <b>Zaloguj</b>
-            </CustomLink>
-          </Link>
         </form>
       </Container>
     );
   }
 };
 
-export default RegisterScreen;
+function mapStateToProps(state) {
+  return {
+    errorMainMessage: state.error.msg,
+    errorEmail: state.error.errorsList?.Email ?? "",
+    errorPassword: state.error.errorsList?.Password ?? "",
+    errorConfirmPassword: state.error.errorsList?.ConfirmPassword ?? "",
+    errorList: state.error.errorsList[0] ?? "",
+    isLoggedIn: state.auth.isAuthenticated,
+    isLoading: state.auth.isLoading,
+  };
+}
+
+export default connect(mapStateToProps)(RegisterScreen);

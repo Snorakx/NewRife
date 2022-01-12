@@ -5,6 +5,7 @@ import {
   USER_LOADED,
   REGISTER_FAIL,
   LOGOUT_SUCCESS,
+  LOGIN_FAILED,
 } from "../auth/authTypes";
 import { getSettings } from "../../hours/hoursAction";
 import { getTasks } from "../../tasks/tasksAction";
@@ -25,10 +26,18 @@ export const loadUser = () => (dispatch, getState) => {
       "Content-Type": "application/json",
     },
   };
-  console.log(requestOptions);
 
   fetch(`${process.env.REACT_APP_API_URL}/api/auth/load`, requestOptions)
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.status === 401) {
+        dispatch({
+          type: LOGIN_FAILED,
+        });
+      } else {
+        return response.json();
+      }
+      return "";
+    })
     .then((data) => {
       if (data.isSuccess === true) {
         dispatch({
@@ -37,8 +46,6 @@ export const loadUser = () => (dispatch, getState) => {
         });
         dispatch(getSettings());
         dispatch(getTasks());
-      } else if (data.status !== 200) {
-        dispatch(returnErrors(data.title, data.errors));
       }
     })
     .catch((err) => {
@@ -73,6 +80,10 @@ export const loginUser = (email, password) => (dispatch, getState) => {
         dispatch(getTasks());
         dispatch(clearErrors());
       } else if (data.status !== 200) {
+        dispatch({
+          type: LOGIN_FAILED,
+          payload: data,
+        });
         dispatch(returnErrors(data.message, data.errors));
       }
     })
@@ -112,7 +123,7 @@ export const RegisterUser =
             type: REGISTER_FAIL,
             payload: data,
           });
-          dispatch(returnErrors(data.title, data.errors));
+          dispatch(returnErrors(data.message, data.errors));
           console.log(data);
         }
       })

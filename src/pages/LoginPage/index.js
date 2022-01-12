@@ -12,7 +12,7 @@ import Logo from "../../common/components/logo/logo-lg";
 import { connect } from "react-redux";
 import "./style.scss";
 
-const LoginScreen = ({ error, isLoggedIn }) => {
+const LoginScreen = ({ error, isLoggedIn, isLoading }) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,7 +60,9 @@ const LoginScreen = ({ error, isLoggedIn }) => {
             helperText={error}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <PrimaryBtn handleClick={dispatchLoginAction}>Zaloguj</PrimaryBtn>
+          <PrimaryBtn handleClick={dispatchLoginAction}>
+            {isLoading ? "Logowanie..." : "Zaloguj"}
+          </PrimaryBtn>
           <div>
             <CustomLink>
               <Link className="forget-password" to="/passwordReset">
@@ -81,8 +83,9 @@ const LoginScreen = ({ error, isLoggedIn }) => {
 
 function mapStateToProps(state) {
   return {
-    error: state.error.msg,
+    error: state.error.msg ?? "",
     isLoggedIn: state.auth.isAuthenticated,
+    isLoading: state.auth.isLoading,
   };
 }
 
