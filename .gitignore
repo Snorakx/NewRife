@@ -539,3 +539,7 @@ RifeIdentity/obj/Debug/netstandard2.0/RifeIdentity.Shared.csproj.AssemblyReferen
 WebApiRife/appsettings.json
 WebApiRife/bin/Debug/netcoreapp3.1/appsettings.json
 WebApiRife/appsettings.json
+.vs/WebApiRife/DesignTimeBuild/.dtbcache.v2
+.vs/WebApiRife/v16/.suo
+WebApiRife/obj/Debug/netcoreapp3.1/Rife.Api.dll
+WebApiRife/obj/Debug/netcoreapp3.1/Rife.Api.pdb
