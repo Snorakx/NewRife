@@ -1,0 +1,27 @@
+@import "../../../App.scss";
+
+.user-container{
+    flex:1;
+    display: flex;
+    width:100%;
+
+    .user-card-left{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        width:100%; }  
+        
+        .user-card-right{
+            flex:1;
+            display: flex;
+            width:100%;
+            flex-direction: column; 
+        
+        .user-features{
+            display: flex;
+
+        }
+    }   
+
+
+}

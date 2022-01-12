@@ -2,6 +2,7 @@ import React from "react";
 import store from "../../app/store";
 import { Redirect } from "react-router-dom";
 import Dashboard from "../../common/containers/dashboard/index";
+import User from "../UserPage/components/user";
 
 const UserScreen = () => {
   let isLoggedIn = store.getState().auth.isAuthenticated;
@@ -11,7 +12,9 @@ const UserScreen = () => {
   } else {
     return (
       <div>
-        <Dashboard></Dashboard>
+        <Dashboard>
+          <User />
+        </Dashboard>
       </div>
     );
   }

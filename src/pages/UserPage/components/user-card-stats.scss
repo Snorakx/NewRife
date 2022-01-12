@@ -1,0 +1,57 @@
+@import "../../../App.scss";
+
+   
+    
+        .user-card-stats{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            margin: 5.3% 5.3% 0 5.3%;
+    
+            .profile_image{
+                flex:1;
+                display: flex;
+                justify-content: space-around;
+                width: 30%;
+                border-radius: 100%;
+                margin: auto;
+                padding: 3% 0%;
+    
+            }
+    
+             .profile_data{
+                flex:1;
+                display: flex;
+                justify-content: space-around;
+    
+                .user_stats{
+                    flex:1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+    
+                    .user_stats_number{
+                        display: flex;
+                        justify-content: space-around;
+                        font-size: 1.6rem;
+                        font-weight: $font-bold;
+                        color: $gray-500;
+
+                    }
+
+                    .user_stats_data{
+                        display: flex;
+                        justify-content: space-around;
+                        text-align: center;
+                        font-size: 1rem;
+                        color: $gray-600;
+                        padding: 5% 0 0;
+            
+                    }
+                }
+    
+            }
+        }
+    
+  
+    
