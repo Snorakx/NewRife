@@ -1,18 +1,19 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "WwEmPrFSCA7xjdLGbKWnN2ao3sRUYTY99hP65RcbHX4Rywq69vwBcmEwBjiXEOrxZro8ug8xeD5LeBa6g8Kz8w==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\oliwi\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
-=======
   "dgSpecHash": "VFfDaCZ7BTD7pfc8FuNW7Xea6HgH4tcuTBtL6p2n7zCJDATqAJTnezAVT3wdPnDn80l8BCrmmwX55LLhInimDw==",
   "success": true,
   "projectFilePath": "C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\RifeIdentity.Shared.csproj",
->>>>>>> 8392644de71d240160bfb32e9ecdf423bd647af6
   "expectedPackageFiles": [
-    "C:\\Users\\oliwi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\oliwi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\oliwi\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\patry\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\patry\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\patry\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\patry\\Documents\\NewRife\\RifeIdentity\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
