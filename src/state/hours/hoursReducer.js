@@ -26,6 +26,7 @@ export default function hourReducerFunction(state = initialState, action) {
       return {
         ...state,
         settingsAdded: false,
+        isNewUser: true,
       };
     case GET_USER_SETTINGS_SUCCESS:
       return {

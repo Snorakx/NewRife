@@ -37,7 +37,6 @@ export const setSettings = (hoursPerDay) => (dispatch, getState) => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.id != null) {
         dispatch({
           type: SET_USER_SETTINGS_SUCCESS,
@@ -65,7 +64,6 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
       "Content-Type": "application/json",
     },
   };
-  console.log(requestOptions);
 
   fetch(
     `${process.env.REACT_APP_API_URL}/api/userSettings/getSettings`,
@@ -88,6 +86,7 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
       throw err;
     });
 };
+
 export const addUserWorkedHour = () => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -98,7 +97,6 @@ export const addUserWorkedHour = () => (dispatch, getState) => {
       "Content-Type": "application/json",
     },
   };
-  console.log(requestOptions);
 
   fetch(`${process.env.REACT_APP_API_URL}/api/level/addhour`, requestOptions)
     .then((response) => response.json())

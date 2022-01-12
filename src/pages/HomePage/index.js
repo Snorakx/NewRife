@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import store from "../../app/store";
 import { Redirect } from "react-router-dom";
 import Dashboard from "../../common/containers/dashboard";
-import { getTasks } from "../../state/tasks/tasksAction";
-import DayBox from "./components/day";
+
 import DayContainer from "../HomePage/components/dayContainer";
 
 const HomeScreen = () => {
@@ -12,7 +11,9 @@ const HomeScreen = () => {
 
   if (!isLoggedIn) {
     return <Redirect to="/" />;
-  } else if (isNewUser) {
+  }
+
+  if (!isNewUser) {
     return (
       <Dashboard>
         <DayContainer />

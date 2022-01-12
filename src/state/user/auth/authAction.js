@@ -67,7 +67,6 @@ export const loginUser = (email, password) => (dispatch, getState) => {
     },
     body: JSON.stringify(credentials),
   };
-  console.log(requestOptions);
   fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
@@ -108,7 +107,6 @@ export const RegisterUser =
       },
       body: JSON.stringify(credentials),
     };
-    console.log(credentials);
     fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
@@ -124,7 +122,6 @@ export const RegisterUser =
             payload: data,
           });
           dispatch(returnErrors(data.message, data.errors));
-          console.log(data);
         }
       })
       .catch((err) => {

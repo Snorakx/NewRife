@@ -96,20 +96,19 @@ const DefaultSettings = (props) => {
       <Logo />
       <BasicText>Ile czasu w tygodniu chcesz spędzić na pracy?</BasicText>
       <BasicText>
-        Masz w sumie do dyspozycji 48 godzin na cały tydzień.{" "}
+        Masz w sumie do dyspozycji 48 godzin na cały tydzień.
       </BasicText>
       <Title>Poniedziałek</Title>
       <Slider
         className="slider"
-        defaultValue={0}
         getAriaValueText={valuetext}
+        defaultValue={0}
         aria-labelledby="discrete-slider-custom1"
         step={1}
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerMonday}
-        onChange={(e) => setHoursPerMonday(e.target.value)}
+        onChange={(e, val) => setHoursPerMonday(val)}
       />
       <Title>Wtorek</Title>
       <Slider
@@ -121,8 +120,7 @@ const DefaultSettings = (props) => {
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerTuesday}
-        onChange={(e) => setHoursPerTuesday(e.target.value)}
+        onChange={(e, val) => setHoursPerTuesday(val)}
       />
       <Title>Środa</Title>
       <Slider
@@ -134,8 +132,7 @@ const DefaultSettings = (props) => {
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerWednesday}
-        onChange={(e) => setHoursPerWednesday(e.target.value)}
+        onChange={(e, val) => setHoursPerWednesday(val)}
       />
       <Title>Czwartek</Title>
       <Slider
@@ -147,8 +144,7 @@ const DefaultSettings = (props) => {
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerThursday}
-        onChange={(e) => setHoursPerThursday(e.target.value)}
+        onChange={(e, val) => setHoursPerThursday(val)}
       />
       <Title>Piątek</Title>
       <Slider
@@ -160,8 +156,7 @@ const DefaultSettings = (props) => {
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerFriday}
-        onChange={(e) => setHoursPerFriday(e.target.value)}
+        onChange={(e, val) => setHoursPerFriday(val)}
       />
       <Title>Sobota</Title>
       <Slider
@@ -173,8 +168,7 @@ const DefaultSettings = (props) => {
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerSaturday}
-        onChange={(e) => setHoursPerSaturday(e.target.value)}
+        onChange={(e, val) => setHoursPerSaturday(val)}
       />
       <Title>Niedziela</Title>
       <Slider
@@ -186,10 +180,8 @@ const DefaultSettings = (props) => {
         max={8}
         valueLabelDisplay="auto"
         marks={marks}
-        value={hoursPerSunday}
-        onChange={(e) => setHoursPerSunday(e.target.value)}
+        onChange={(e, val) => setHoursPerSunday(val)}
       />
-
       <PrimaryBtn handleClick={handleSettingsSubmit}>
         Zapisz ustawienia i przejdź do aplikacji
       </PrimaryBtn>

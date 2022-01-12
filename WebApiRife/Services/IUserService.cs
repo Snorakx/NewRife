@@ -62,12 +62,30 @@ namespace Rife.Api.Services
             };
             var result = await _userManager.CreateAsync(identityUser, model.Password);
 
-            if (result.Succeeded)
-            {
+             if (result.Succeeded)
+             {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                var claims = new[]
+                    {
+                        new Claim("Email", model.Email),
+                        new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    };
+
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["AuthSettings:Key"]));
+
+                var token = new JwtSecurityToken(
+                    issuer: _configuration["AuthSettings:Issuer"],
+                    audience: _configuration["AuthSettings:Audience"],
+                    claims: claims,
+                    expires: DateTime.Now.AddDays(1),
+                    signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
+                    );
+
+                string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
                 // Todo: send a confirmation Email
                 return new UserManagerResponse
                 {
-                    Message = "User created succesfully!",
+                    Message = tokenAsString,
                     IsSuccess = true,
                 };
             }
@@ -153,6 +171,7 @@ namespace Rife.Api.Services
                 Friday = model.Friday,
                 Saturday = model.Saturday,
                 Sunday = model.Sunday,
+                AllDeclaredHours = model.Monday + model.Tuesday + model.Wednesday + model.Thursday + model.Friday + model.Saturday + model.Sunday,
             };
         }
         public async Task<UserSettingsManagerResponse> GetUserSettingsAsync(Clients model)
