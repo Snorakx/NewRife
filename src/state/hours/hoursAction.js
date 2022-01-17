@@ -6,6 +6,8 @@ import {
   USER_NEW_LEVEL,
   SHOW_OPTIONS_TO_NEW_USER,
 } from "../hours/hoursTypes";
+import { SET_DONE_TASK } from "../tasks/taskTypes";
+import { changeTaskStateToDone } from "../tasks/tasksAction";
 
 /**
  ** POST Action with endpoint to set settings(hourPerDay) for new user or change settings using options
@@ -109,6 +111,7 @@ export const addUserWorkedHour = () => (dispatch, getState) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
+        dispatch(changeTaskStateToDone());
         dispatch({
           type: ADD_USER_WORKING_HOUR,
           payload: data,

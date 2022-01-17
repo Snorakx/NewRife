@@ -105,6 +105,7 @@ const TaskScreen = (props) => {
                           key={item.id}
                           index={index}
                           id={item.id}
+                          state={item.state}
                         />
                       )}
                     </Draggable>

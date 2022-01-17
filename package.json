@@ -27,7 +27,8 @@
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "surge": "^0.23.1"
   },
   "scripts": {
     "start": "react-scripts start",
