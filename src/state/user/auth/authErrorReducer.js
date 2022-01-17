@@ -12,7 +12,10 @@ export default function authErrorReducer(state = initialState, action) {
         errorsList: action.payload.errors,
       };
     case CLEAR_ERRORS:
-      return state;
+      return {
+        msg: "",
+        errorsList: [],
+      };
     default:
       return state;
   }

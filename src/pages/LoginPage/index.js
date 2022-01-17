@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import store from "../../app/store";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import PrimaryBtn from "../../common/components/PrimaryBtn";

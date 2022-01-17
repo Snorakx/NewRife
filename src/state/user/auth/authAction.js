@@ -12,10 +12,10 @@ import { getTasks } from "../../tasks/tasksAction";
 
 import { returnErrors, clearErrors } from "./authErrorActions";
 
-//check token/ load
-
+/**
+ ** GET Action with endpoint to check if bearer is exist in localstorage or is not expired to log in user without email, password
+ **/
 export const loadUser = () => (dispatch, getState) => {
-  //loading user
   dispatch({ type: USER_LOADING });
   const token = getState().auth.token;
 
@@ -52,6 +52,10 @@ export const loadUser = () => (dispatch, getState) => {
       throw err;
     });
 };
+
+/**
+ ** POST Action with endpoint to log in user with email, password
+ **/
 export const loginUser = (email, password) => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
 
@@ -67,6 +71,7 @@ export const loginUser = (email, password) => (dispatch, getState) => {
     },
     body: JSON.stringify(credentials),
   };
+
   fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
@@ -75,14 +80,18 @@ export const loginUser = (email, password) => (dispatch, getState) => {
           type: LOGIN_SUCCESS,
           payload: data,
         });
+
         dispatch(getSettings());
+
         dispatch(getTasks());
+
         dispatch(clearErrors());
       } else if (data.status !== 200) {
         dispatch({
           type: LOGIN_FAILED,
           payload: data,
         });
+
         dispatch(returnErrors(data.message, data.errors));
       }
     })
@@ -90,44 +99,53 @@ export const loginUser = (email, password) => (dispatch, getState) => {
       throw err;
     });
 };
-export const RegisterUser =
-  (email, password, c_password) => (dispatch, getState) => {
-    dispatch({ type: USER_LOADING });
 
-    const credentials = {
-      Email: email,
-      Password: password,
-      ConfirmPassword: c_password,
-    };
+/**
+ ** POST Action with endpoint to register user with email, password,confirm password
+ **/
+export const RegisterUser = (email, password, c_password) => (dispatch) => {
+  dispatch({ type: USER_LOADING });
 
-    const requestOptions = {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    };
-    fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.isSuccess === true) {
-          dispatch({
-            type: REGISTER_SUCCESS,
-            payload: data,
-          });
-          dispatch(clearErrors());
-        } else if (data.status !== 200) {
-          dispatch({
-            type: REGISTER_FAIL,
-            payload: data,
-          });
-          dispatch(returnErrors(data.message, data.errors));
-        }
-      })
-      .catch((err) => {
-        throw err;
-      });
+  const credentials = {
+    Email: email,
+    Password: password,
+    ConfirmPassword: c_password,
   };
-export const logoutUser = () => (dispatch, getState) => {
+
+  const requestOptions = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  };
+
+  fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, requestOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.isSuccess === true) {
+        dispatch({
+          type: REGISTER_SUCCESS,
+          payload: data,
+        });
+
+        dispatch(clearErrors());
+      } else if (data.status !== 200) {
+        dispatch({
+          type: REGISTER_FAIL,
+          payload: data,
+        });
+
+        dispatch(returnErrors(data.message, data.errors));
+      }
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+/**
+ ** Action to log out user (remove Bearer from LocalStorage and redux store)
+ **/
+export const logoutUser = () => (dispatch) => {
   dispatch({ type: LOGOUT_SUCCESS });
 };

@@ -38,6 +38,7 @@ export default function hourReducerFunction(state = initialState, action) {
         friday: action.payload.friday,
         saturday: action.payload.saturday,
         sunday: action.payload.sunday,
+        settingsAdded: true,
       };
     case ADD_USER_WORKING_HOUR:
       console.log(action.payload.workedHours);

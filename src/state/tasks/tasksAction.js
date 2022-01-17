@@ -14,6 +14,9 @@ import {
   DRAG_AND_DROP,
 } from "../tasks/taskTypes";
 
+/**
+ ** GET Action with endpoint to get all tasks for logged user, bearer auth
+ **/
 export const getTasks = () => (dispatch, getState) => {
   const token = getState().auth.token;
   const requestOptions = {
@@ -46,6 +49,9 @@ export const getTasks = () => (dispatch, getState) => {
     });
 };
 
+/**
+ ** POST Action with endpoint to add one task for logged user, bearer auth
+ **/
 export const addTask = (dayId, input, repeatTask) => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -86,6 +92,10 @@ export const addTask = (dayId, input, repeatTask) => (dispatch, getState) => {
       throw err;
     });
 };
+
+/**
+ ** PUT Action with endpoint to change order of tasks in one container(day), bearer auth
+ **/
 export const dragAndDrop =
   (newArray, sourceOrder, destinationOrder) => (dispatch, getState) => {
     const token = getState().auth.token;
@@ -111,6 +121,10 @@ export const dragAndDrop =
       requestOptions
     );
   };
+
+/**
+ ** DELETE Action with endpoint to remove one task, bearer auth
+ **/
 export const deleteTask = (taskIdToDelete) => (dispatch, getState) => {
   const postData = {
     ID: taskIdToDelete,
@@ -138,7 +152,7 @@ export const deleteTask = (taskIdToDelete) => (dispatch, getState) => {
           type: DELETE_TASK,
           payload: taskIdToDelete,
         });
-        console.log(data)
+        console.log(data);
       }
     })
     .catch((err) => {

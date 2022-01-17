@@ -7,8 +7,9 @@ import {
   SHOW_OPTIONS_TO_NEW_USER,
 } from "../hours/hoursTypes";
 
-import { useDispatch } from "react-redux";
-
+/**
+ ** POST Action with endpoint to set settings(hourPerDay) for new user or change settings using options
+ **/
 export const setSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -54,6 +55,9 @@ export const setSettings = (hoursPerDay) => (dispatch, getState) => {
     });
 };
 
+/**
+ ** GET Action with endpoint to get settings(hours per day) for new user or change settings using options
+ **/
 export const getSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -87,6 +91,9 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
     });
 };
 
+/**
+ ** POST Action with endpoint to add one worked hour to user account
+ **/
 export const addUserWorkedHour = () => (dispatch, getState) => {
   const token = getState().auth.token;
 

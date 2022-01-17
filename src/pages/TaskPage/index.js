@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import store from "../../app/store";
 import { Redirect } from "react-router-dom";
 import Dashboard from "../../common/containers/dashboard";
@@ -24,42 +24,39 @@ const TaskScreen = (props) => {
   const [repeatTask, setRepeatTask] = useState(false);
   const dayId = props.location.state.id.toString();
 
-
-
- 
-
   const addTaskAsync = () => {
     dispatch(addTask(dayId, input, repeatTask));
   };
+
   const handleOnDragEnd = (result) => {
     if (!result.destination) {
       return;
     }
+
     const items = reorder(
       props.tasksList,
       result.source.index,
       result.destination.index
     );
-   
-    
-    console.log(props.tasksList[result.source.index].order);
 
-    dispatch(dragAndDrop(items, props.tasksList[result.source.index].id, props.tasksList[result.destination.index].id))
+    dispatch(
+      dragAndDrop(
+        items,
+        props.tasksList[result.source.index].id,
+        props.tasksList[result.destination.index].id
+      )
+    );
   };
 
   const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
-
   });
-
 
   const grid = 8;
 
-
-  const getListStyle = isDraggingOver => ({
-    width:"100%"
+  const getListStyle = (isDraggingOver) => ({
+    width: "100%",
   });
-  
 
   if (!isLoggedIn) {
     return <Redirect to="/" />;
@@ -77,43 +74,47 @@ const TaskScreen = (props) => {
           onChange={(e) => setRepeatTask(e.target.checked)}
           label="Powtórz zadanie co tydzień"
         ></input> */}
-            <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="droppable">
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="droppable">
             {(provided, snapshot) => (
-            <div
-            className="task-container-dnd"
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-              style={getListStyle(snapshot.isDraggingOver)}
-            >
-              {props.tasksList.map((item, index) => {
-                return (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                  {(provided, snapshot) => (
-                  <Task
-                     myRef = {provided.innerRef}
-                     provDraggable = {provided.draggableProps}
-                     provDragHandle = {provided.dragHandleProps}
-                     styles = {getItemStyle(
-                       snapshot.isDragging,
-                       provided.draggableProps.style
-                     )}
-                    myKey={item.id}
-                    title={item.title}
-                    description={item.description}
-                    key={item.id}
-                    index={index}
-                    id={item.id}
-                  />
-                  )}
-                  </Draggable>
-                )}
-                  )}
-              {provided.placeholder}
+              <div
+                className="task-container-dnd"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
+              >
+                {props.tasksList.map((item, index) => {
+                  return (
+                    <Draggable
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <Task
+                          myRef={provided.innerRef}
+                          provDraggable={provided.draggableProps}
+                          provDragHandle={provided.dragHandleProps}
+                          styles={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                          )}
+                          myKey={item.id}
+                          title={item.title}
+                          description={item.description}
+                          key={item.id}
+                          index={index}
+                          id={item.id}
+                        />
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
               </div>
             )}
-              </Droppable>
-            </DragDropContext>
+          </Droppable>
+        </DragDropContext>
       </Dashboard>
     );
   }
@@ -128,8 +129,6 @@ function mapStateToProps(state, ownProps) {
       }
     });
   }
-
-
 
   return { tasksList: tasksForThisDay };
 }
