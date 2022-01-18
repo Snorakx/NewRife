@@ -2,4 +2,9 @@
 
 .user-card-level{
     background-color: $white-300;
+    width: 100%;
+
+    .lvl-container{
+        background-color: $white-300;
+    }
 }

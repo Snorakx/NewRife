@@ -1,27 +1,53 @@
 @import "../../../App.scss";
 
-.user-container{
-    flex:1;
+.user-container {
+  flex: 1;
+  display: flex;
+  width: 100%;
+
+  .user-card-left {
+    flex: 1;
     display: flex;
-    width:100%;
+    flex-direction: column;
+    background-color: darkseagreen;
+  }
 
-    .user-card-left{
-        flex:1;
-        display: flex;
-        flex-direction: column;
-        width:100%; }  
-        
-        .user-card-right{
-            flex:1;
-            display: flex;
-            width:100%;
-            flex-direction: column; 
-        
-        .user-features{
-            display: flex;
+  .user-card-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: darksalmon;
 
-        }
-    }   
+    .user-features {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
 
-
+      .card-holder {
+        flex: 1;
+      }
+    }
+  }
 }
+
+
+ .card-header {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .recently-unlocked{
+        padding: 5% 0% 5% 5%;
+        font-size: 0.9em;
+        color: $gray-600;
+        font-weight: 600;
+    }
+
+    .see-all{
+        padding: 5.3% 5% 5% 0%;
+        font-size: 0.7em;
+        color: $primary-1000;
+        font-weight: 600;
+    }
+  }
