@@ -14,3 +14,5 @@ export const GET_TASKS = "GET_TASKS";
 export const GET_TASKS_SUCCESS = "GET_TASKS_SUCCESS";
 export const GET_TASKS_FAILED = "GET_TASKS_FAILED";
 export const DRAG_AND_DROP = "DRAG_AND_DROP";
+
+export const SET_DONE_TASK = "SET_DONE_TASK";

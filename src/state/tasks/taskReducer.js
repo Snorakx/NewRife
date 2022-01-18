@@ -13,6 +13,7 @@ import {
   GET_TASKS_SUCCESS,
   GET_TASKS_FAILED,
   DRAG_AND_DROP,
+  SET_DONE_TASK,
 } from "../tasks/taskTypes";
 
 const initialState = {
@@ -78,7 +79,15 @@ export default function taskReducerFunction(state = initialState, action) {
         ...state,
         tasksList: tempList,
       };
-
+    case SET_DONE_TASK:
+      const tempTask = state.tasksList.filter(
+        (item) => item.id === action.payload.id
+      );
+      tempTask[0].state = "Done";
+      return {
+        ...state,
+        laodingTasks: false,
+      };
     default:
       return state;
   }

@@ -1,7 +1,6 @@
 {
   "name": "rife",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
@@ -16,6 +15,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "dotenv": "^10.0.0",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-countdown-circle-timer": "^2.5.3",
@@ -27,13 +27,16 @@
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "surge": "^0.23.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

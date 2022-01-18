@@ -25,7 +25,10 @@ const Task = (props, index) => {
       className="task-box"
     >
       <div className="container">
-        <Title>{props.title}</Title>
+        <Title>
+          {props.title}
+          {props.state}
+        </Title>
       </div>
       <div className="bin-icon-box">
         <GroupedSelect taskID={props.id} handleClick={handleDeleteTask} />

@@ -63,6 +63,14 @@ const DefaultSettings = (props) => {
   const [hoursPerSaturday, setHoursPerSaturday] = useState(0);
   const [hoursPerSunday, setHoursPerSunday] = useState(0);
 
+  const countHours = (hoursPerDay) => {
+    let number = 0;
+    for (let i in hoursPerDay) {
+      number += hoursPerDay[i];
+    }
+    return number;
+  };
+
   const handleSettingsSubmit = () => {
     const hoursPerDay = {
       hoursPerMonday,
@@ -73,18 +81,9 @@ const DefaultSettings = (props) => {
       hoursPerSaturday,
       hoursPerSunday,
     };
-
-    const hoursSum =
-      hoursPerMonday +
-      hoursPerTuesday +
-      hoursPerWednesday +
-      hoursPerThursday +
-      hoursPerFriday +
-      hoursPerSaturday +
-      hoursPerSunday;
-
-    if (hoursSum > 48) {
-      console.log(hoursSum);
+    const sum = countHours(hoursPerDay);
+    if (sum > 48) {
+      console.log(sum);
     } else {
       dispatch(setSettings(hoursPerDay));
       history.push("/home");

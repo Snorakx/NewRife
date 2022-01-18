@@ -6,9 +6,12 @@ import {
   USER_NEW_LEVEL,
   SHOW_OPTIONS_TO_NEW_USER,
 } from "../hours/hoursTypes";
+import { SET_DONE_TASK } from "../tasks/taskTypes";
+import { changeTaskStateToDone } from "../tasks/tasksAction";
 
-import { useDispatch } from "react-redux";
-
+/**
+ ** POST Action with endpoint to set settings(hourPerDay) for new user or change settings using options
+ **/
 export const setSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -54,6 +57,9 @@ export const setSettings = (hoursPerDay) => (dispatch, getState) => {
     });
 };
 
+/**
+ ** GET Action with endpoint to get settings(hours per day) for new user or change settings using options
+ **/
 export const getSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -87,6 +93,9 @@ export const getSettings = (hoursPerDay) => (dispatch, getState) => {
     });
 };
 
+/**
+ ** POST Action with endpoint to add one worked hour to user account
+ **/
 export const addUserWorkedHour = () => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -102,6 +111,7 @@ export const addUserWorkedHour = () => (dispatch, getState) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
+        dispatch(changeTaskStateToDone());
         dispatch({
           type: ADD_USER_WORKING_HOUR,
           payload: data,

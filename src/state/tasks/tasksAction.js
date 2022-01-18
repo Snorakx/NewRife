@@ -12,8 +12,12 @@ import {
   GET_TASKS_SUCCESS,
   GET_TASKS_FAILED,
   DRAG_AND_DROP,
+  SET_DONE_TASK,
 } from "../tasks/taskTypes";
 
+/**
+ ** GET Action with endpoint to get all tasks for logged user, bearer auth
+ **/
 export const getTasks = () => (dispatch, getState) => {
   const token = getState().auth.token;
   const requestOptions = {
@@ -46,6 +50,9 @@ export const getTasks = () => (dispatch, getState) => {
     });
 };
 
+/**
+ ** POST Action with endpoint to add one task for logged user, bearer auth
+ **/
 export const addTask = (dayId, input, repeatTask) => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -86,6 +93,10 @@ export const addTask = (dayId, input, repeatTask) => (dispatch, getState) => {
       throw err;
     });
 };
+
+/**
+ ** PUT Action with endpoint to change order of tasks in one container(day), bearer auth
+ **/
 export const dragAndDrop =
   (newArray, sourceOrder, destinationOrder) => (dispatch, getState) => {
     const token = getState().auth.token;
@@ -111,6 +122,10 @@ export const dragAndDrop =
       requestOptions
     );
   };
+
+/**
+ ** DELETE Action with endpoint to remove one task, bearer auth
+ **/
 export const deleteTask = (taskIdToDelete) => (dispatch, getState) => {
   const postData = {
     ID: taskIdToDelete,
@@ -138,8 +153,48 @@ export const deleteTask = (taskIdToDelete) => (dispatch, getState) => {
           type: DELETE_TASK,
           payload: taskIdToDelete,
         });
-        console.log(data)
+        console.log(data);
       }
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+/**
+ ** PUT Action with endpoint to change state  (to-do => done) , bearer auth
+ **/
+export const changeTaskStateToDone = () => (dispatch, getState) => {
+  const date = new Date();
+  const today = date.getDay().toString();
+  const tasks = getState().tasks.tasksList;
+  const todayFirstTask = tasks.filter(
+    (task) => task.dayID === today && task.state === "To do"
+  );
+
+  const postData = {
+    ID: todayFirstTask[0]?.id,
+    State: "Done",
+  };
+  const token = getState().auth.token;
+  const requestOptions = {
+    method: "put",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postData),
+  };
+  fetch(
+    `${process.env.REACT_APP_API_URL}/api/tasks/ChangeTaskState`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch({
+        type: SET_DONE_TASK,
+        payload: data,
+      });
     })
     .catch((err) => {
       throw err;
