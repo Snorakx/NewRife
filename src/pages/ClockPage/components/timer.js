@@ -3,12 +3,10 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import "./timer.scss";
 import PrimaryButton from "../../../common/components/PrimaryBtn/index";
 import SecondaryBtn from "../../../common/components/SecondaryBtn";
-import {SettingsButton} from "../../../common/components/SettingsButton";
+import { SettingsButton } from "../../../common/components/SettingsButton";
 import { useDispatch } from "react-redux";
 import { addUserWorkedHour } from "../../../state/hours/hoursAction";
-
-
-
+import RunningTask from "./runningTask";
 
 const hourSeconds = 3;
 
@@ -35,57 +33,68 @@ const TimerComponent = () => {
   const [isStarted, setIsStarted] = useState(false);
   const [key, setKey] = useState(0);
 
-  const onFinish = () =>{
-    if(isStarted){
-      console.log("PLUS 1 PUNKT !!!")
-      dispatch(addUserWorkedHour())
+  const onFinish = () => {
+    if (isStarted) {
+      console.log("Added score +1");
+      dispatch(addUserWorkedHour());
     }
-  }
+  };
 
   const timerProps = {
     isPlaying: isStarted,
     size: 300,
     strokeWidth: 20,
-    key: key
+    key: key,
   };
-  
-  const resetTimer = () =>{
-    setKey((prevKey)=> prevKey +1 )
+
+  const resetTimer = () => {
+    setKey((prevKey) => prevKey + 1);
     setIsStarted(false);
-  }
+  };
   return (
     <div className="timer-circle-container">
       <CountdownCircleTimer
         {...timerProps}
-        
         colors={[
           ["#FFDA58", 1],
           ["#FFDA58", 1],
           ["#ff6058", 1],
         ]}
         duration={hourSeconds}
-       onComplete={()=>{onFinish()}}
+        onComplete={() => {
+          onFinish();
+        }}
       >
         {({ elapsedTime }) => renderTime(hourSeconds - elapsedTime)}
       </CountdownCircleTimer>
+      <RunningTask isStarted={isStarted} />
       {!isStarted ? (
-        <PrimaryButton
-          handleClick={() => {
-            setIsStarted(true);
-          }}
-        >
-          Rozpocznij
-        </PrimaryButton>
+        <div className="timer-buttons">
+          <PrimaryButton
+            handleClick={() => {
+              setIsStarted(true);
+            }}
+          >
+            Rozpocznij
+          </PrimaryButton>
+        </div>
       ) : (
         <div className="timer-buttons">
-        <SecondaryBtn
-          handleClick={() => {
-            setIsStarted(false);
-          }}
-        >
-          Zatrzymaj
-        </SecondaryBtn>
-        <SettingsButton optionNames={[{name:"Dodaj Zadanie"},{name:"Zakończ",  handleClick: resetTimer}]}>Opcje</SettingsButton>
+          <SecondaryBtn
+            handleClick={() => {
+              setIsStarted(false);
+            }}
+          >
+            Zatrzymaj
+          </SecondaryBtn>
+          <SettingsButton
+            optionNames={[
+              { name: "Dodaj Zadanie" },
+              { name: "Zakończ", handleClick: resetTimer },
+            ]}
+          >
+            Opcje
+          </SettingsButton>
         </div>
       )}
     </div>

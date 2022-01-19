@@ -1,68 +1,66 @@
-@import '../../../App.scss';
+@import "../../../App.scss";
 
-.task-box{
-    border-radius:8px;
-    display: flex;
-    width:90%;
-    float: right;
-    max-height:90px;
-    height: 33%;
-    margin-top: 1rem;
-    min-height: 100px;
+.task-box {
+  border-radius: 8px;
+  display: flex;
+  width: 90%;
+  float: right;
+  max-height: 90px;
+  height: 33%;
+  margin-top: 1rem;
+  min-height: 100px;
 
-
-
-.container {
-  height: 100%;
+  .container {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     flex: 15;
     padding: 0 2rem;
-  background-color: $white-200;
-  border-radius: 8px;
-
-
-}
-.bin-icon-box{
-  flex:1;
-  background-color: $white-200;
+    background-color: $white-200;
+    border-radius: 8px;
+  }
+  .bin-icon-box {
+    flex: 1;
+    background-color: $white-200;
     margin: 6px;
     display: flex;
     margin: 0 0 0 6px;
     border-radius: 8px;
     align-items: center;
     justify-content: center;
-}
+  }
 
-.progress {
-  padding: 0;
-  background: $primary-100;
-  border-radius: $round-border;
-  box-shadow: inset 0 1px 2px $primary-200, 0 1px $primary-100 ;
-}
+  .progress {
+    padding: 0;
+    background: $primary-100;
+    border-radius: $round-border;
+    box-shadow: inset 0 1px 2px $primary-200, 0 1px $primary-100;
+  }
 
-.progress-bar {	
-  height: 25px; 
-  border-radius: $round-border; 
-  transition: 0.4s linear;  
-  transition-property: width, background-color;    
-}
+  .progress-bar {
+    height: 25px;
+    border-radius: $round-border;
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+  }
 
-.progress-striped .progress-bar { 	
-  background-color: #FFDA58; 
-  background-image: linear-gradient(
-        45deg, #FFE58A 25%, 
-        transparent 25%, transparent 50%, 
-        #FFE58A  50%, #FFE58A  75%,
-        transparent 75%, transparent); 
-  animation: progressAnimationStrike 6s;
+  .progress-striped .progress-bar {
+    background-color: #ffda58;
+    background-image: linear-gradient(
+      45deg,
+      #ffe58a 25%,
+      transparent 25%,
+      transparent 50%,
+      #ffe58a 50%,
+      #ffe58a 75%,
+      transparent 75%,
+      transparent
+    );
+    animation: progressAnimationStrike 6s;
+  }
 }
-
-
- 
-}
-.task-container-dnd{
+.task-container-dnd {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -74,6 +72,3 @@
   overflow-y: scroll;
   width: 100%;
 }
-
-
-    

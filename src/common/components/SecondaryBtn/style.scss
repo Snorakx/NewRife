@@ -1,23 +1,22 @@
-@import '../../../App.scss';
+@import "../../../App.scss";
 
-
-.secondary-btn{
-    display: flex;
-    background-color: $white-100;
-    color: $gray-600;
-    text-align: center;
-    margin: 2em 1em;
-    padding: 1em 1.5em;
-    font-weight: $font-regular;
-    filter: $primary-shadow;
-    font-family: $font;
-    font-size: $font-size-sm;
-    border-radius: $round-border;
-    transition: $transition-btn;
-        &:hover {
-        background-color: $white-300;
-        filter: $hover-shadow;
-        cursor: pointer;
-        }
+.secondary-btn {
+  display: flex;
+  background-color: $white-100;
+  color: $gray-600;
+  text-align: center;
+  margin: 2em 1em;
+  padding: 1em 1.5em;
+  font-weight: $font-regular;
+  filter: $primary-shadow;
+  font-family: $font;
+  font-size: $font-size-sm;
+  border-radius: $round-border;
+  transition: $transition-btn;
+  justify-content: center;
+  &:hover {
+    background-color: $white-300;
+    filter: $hover-shadow;
+    cursor: pointer;
+  }
 }
-

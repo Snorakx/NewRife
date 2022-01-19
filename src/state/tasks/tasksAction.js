@@ -13,6 +13,7 @@ import {
   GET_TASKS_FAILED,
   DRAG_AND_DROP,
   SET_DONE_TASK,
+  GET_TASKS_FOR_TODAY,
 } from "../tasks/taskTypes";
 
 /**
@@ -164,16 +165,9 @@ export const deleteTask = (taskIdToDelete) => (dispatch, getState) => {
 /**
  ** PUT Action with endpoint to change state  (to-do => done) , bearer auth
  **/
-export const changeTaskStateToDone = () => (dispatch, getState) => {
-  const date = new Date();
-  const today = date.getDay().toString();
-  const tasks = getState().tasks.tasksList;
-  const todayFirstTask = tasks.filter(
-    (task) => task.dayID === today && task.state === "To do"
-  );
-
+export const changeTaskStateToDone = (taskID) => (dispatch, getState) => {
   const postData = {
-    ID: todayFirstTask[0]?.id,
+    ID: taskID,
     State: "Done",
   };
   const token = getState().auth.token;
@@ -199,4 +193,14 @@ export const changeTaskStateToDone = () => (dispatch, getState) => {
     .catch((err) => {
       throw err;
     });
+};
+
+export const getTasksForToday = () => (dispatch, getState) => {
+  const date = new Date();
+  const today = date.getDay().toString();
+  console.log(today);
+  dispatch({
+    type: GET_TASKS_FOR_TODAY,
+    payload: today,
+  });
 };

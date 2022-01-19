@@ -111,7 +111,6 @@ export const addUserWorkedHour = () => (dispatch, getState) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.isSuccess === true) {
-        dispatch(changeTaskStateToDone());
         dispatch({
           type: ADD_USER_WORKING_HOUR,
           payload: data,

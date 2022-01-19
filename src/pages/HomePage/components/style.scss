@@ -9,7 +9,6 @@
   flex-direction: column;
   margin: 1em 0;
 
-
   .day-box {
     background-color: $white-200;
     border-radius: 5px;
@@ -32,6 +31,10 @@
       justify-content: space-around;
       @media (min-width: 700px) {
         width: 95%;
+      }
+      .text {
+        text-align: initial;
+        margin: initial;
       }
     }
 

@@ -12,6 +12,7 @@ const initialState = {
   workedHours: 0,
   level: 0,
   isNewUser: false,
+  tasksForToday: [],
 };
 
 export default function hourReducerFunction(state = initialState, action) {

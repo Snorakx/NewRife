@@ -2,6 +2,7 @@ import React from "react";
 import "./header.scss";
 import Logo from "../../components/logo/logo-sm";
 import avatar from "../../../assets/profile-face.jpg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,9 +10,9 @@ const Header = () => {
       <div className="sidebar_btn">
         <Logo />
       </div>
-      <a href="#" className="avatar_btn">
+      <Link to="/user" className="avatar_btn">
         <img src={avatar} className="profile_image" alt="logo-rife" />
-      </a>
+      </Link>
     </div>
   );
 };

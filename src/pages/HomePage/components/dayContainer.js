@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
-import DayBox from "../../HomePage/components/day";
+import Day from "../../HomePage/components/day";
 import { useHistory } from "react-router-dom";
 
 const DayContainer = (props) => {
@@ -25,12 +25,13 @@ const DayContainer = (props) => {
     <div className="day-container">
       {daysList.map((item) => {
         return (
-          <DayBox
+          <Day
             handleClick={() => openTasksForSimpleDay(item.ID)}
+            dayID={item.ID}
             key={item.ID}
           >
             {item.name}
-          </DayBox>
+          </Day>
         );
       })}
     </div>

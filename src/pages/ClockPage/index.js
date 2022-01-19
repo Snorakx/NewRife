@@ -1,21 +1,34 @@
-import React from "react";
-import store from "../../app/store";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Timer from "../ClockPage/components/timer"
-import Dashboard from "../../common/containers/dashboard/index"
+import Timer from "../ClockPage/components/timer";
+import Dashboard from "../../common/containers/dashboard/index";
+import { connect } from "react-redux";
+import { getTasksForToday } from "../../state/tasks/tasksAction";
 
-const TimerScreen = () => {
-  let isLoggedIn = store.getState().auth.isAuthenticated;
-  
+const TimerScreen = ({ isLoggedIn }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTasksForToday());
+  }, []);
+
   if (!isLoggedIn) {
     return <Redirect to="/" />;
   } else {
     return (
       <div>
-      <Dashboard><Timer /></Dashboard>
+        <Dashboard>
+          <Timer />
+        </Dashboard>
       </div>
-    )
+    );
   }
 };
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.auth.isAuthenticated,
+  };
+}
 
-export default TimerScreen;
+export default connect(mapStateToProps)(TimerScreen);

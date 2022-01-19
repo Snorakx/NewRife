@@ -9,7 +9,6 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import { Link } from "react-router-dom";
-import store from "../../../app/store";
 import { logoutUser } from "../../../state/user/auth/authAction";
 import Header from "../Header/header";
 
@@ -25,7 +24,7 @@ const Dashboard = (props) => {
       setminWIdth("100px");
     } else {
       setFlexMenu("1");
-      setminWIdth("300px");
+      setminWIdth("200px");
     }
   };
 

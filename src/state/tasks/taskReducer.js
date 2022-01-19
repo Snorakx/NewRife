@@ -14,6 +14,7 @@ import {
   GET_TASKS_FAILED,
   DRAG_AND_DROP,
   SET_DONE_TASK,
+  GET_TASKS_FOR_TODAY,
 } from "../tasks/taskTypes";
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   tasksList: [],
   addingTask: false,
   addTaskSuccess: false,
+  tasksForToday: [],
 };
 
 export default function taskReducerFunction(state = initialState, action) {
@@ -79,14 +81,27 @@ export default function taskReducerFunction(state = initialState, action) {
         ...state,
         tasksList: tempList,
       };
+    case GET_TASKS_FOR_TODAY:
+      const tempTasksArray = state.tasksList.filter(
+        (item) => item.dayID === action.payload && item.state !== "Done"
+      );
+      console.log(action.payload);
+      return {
+        ...state,
+        tasksForToday: [...tempTasksArray],
+      };
     case SET_DONE_TASK:
-      const tempTask = state.tasksList.filter(
+      const ArrayWithoutDoneTask = state.tasksForToday.filter(
+        (item) => item.id !== action.payload.id
+      );
+      const CurrentDoneTask = state.tasksList.filter(
         (item) => item.id === action.payload.id
       );
-      tempTask[0].state = "Done";
+      CurrentDoneTask.state = "Done";
       return {
         ...state,
         laodingTasks: false,
+        tasksForToday: [...ArrayWithoutDoneTask],
       };
     default:
       return state;

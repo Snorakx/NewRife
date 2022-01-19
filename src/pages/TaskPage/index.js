@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import store from "../../app/store";
 import { Redirect } from "react-router-dom";
 import Dashboard from "../../common/containers/dashboard";
-import TasksContainer from "./components/tasksContainer";
 import Task from "./components/task";
 import CustomInput from "../../common/components/Input/index";
 import { useDispatch, connect } from "react-redux";
@@ -26,6 +25,7 @@ const TaskScreen = (props) => {
 
   const addTaskAsync = () => {
     dispatch(addTask(dayId, input, repeatTask));
+    setInput("");
   };
 
   const handleOnDragEnd = (result) => {
@@ -51,8 +51,6 @@ const TaskScreen = (props) => {
   const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
   });
-
-  const grid = 8;
 
   const getListStyle = (isDraggingOver) => ({
     width: "100%",

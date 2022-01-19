@@ -1,0 +1,40 @@
+@import "../../../App.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.holder {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  width: 90%;
+  min-height: 90px;
+  height: 33%;
+  margin-top: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+  padding: 0 2rem;
+  background-color: $white-300;
+  border-radius: 8px;
+  &:last-child {
+    opacity: 1;
+    visibility: visible;
+    order: -1;
+  }
+}
+.primary-btn {
+  margin-left: auto;
+  flex: 1;
+}
+.text {
+  font-weight: 500;
+  &.isStarted {
+    text-align: initial;
+    flex: 3;
+  }
+}
