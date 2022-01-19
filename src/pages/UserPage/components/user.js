@@ -16,10 +16,10 @@ const UserComponent = () => {
       </div>
       <div className="user-card-right">
         <div className="user-features">
-          <div className="user-card-lvl">
+          <div className="card-holder user-card-lvl">
             <UserLevel />
           </div>
-          <div className="user-card-badges">
+          <div className="card-holder user-card-badges">
             <UserAchievement />
             <UserAward />
           </div>

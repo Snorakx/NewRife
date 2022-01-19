@@ -1,5 +1,24 @@
 @import "../../../App.scss";
 
-.user-card-achievement{
-    background-color: rgb(183, 224, 174);
+.user-card-achievement {
+  background: $white-300;
+  border-radius: 20px;
+  box-shadow: -2px 2px 8px 0px rgba(78, 57, 216, 0.2);
+  margin: 1rem;
+
+  .achievement-box {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .achievement_image {
+      padding: 0% 0% 5% 5%;
+    }
+
+    .achievement-text {
+      padding: 0% 3% 0% 5%;
+      font-size: 0.8em;
+    }
+  }
 }

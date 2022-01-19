@@ -5,7 +5,9 @@ import avatar from "../../../assets/profile-face.jpg";
 const UserCardStats = () => {
   return (
     <div className="user-card-stats">
-      <img src={avatar} className="profile_image" alt="your_photo" />
+      <div className="profile_image_container">
+        <img src={avatar} className="profile_image" alt="your_photo" />
+      </div>
       <div className="profile_data">
         <div className="user_stats">
           <div className="user_stats_number">56</div>
