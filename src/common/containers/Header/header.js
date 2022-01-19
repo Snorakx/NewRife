@@ -8,7 +8,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="sidebar_btn">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </div>
       <Link to="/user" className="avatar_btn">
         <img src={avatar} className="profile_image" alt="logo-rife" />

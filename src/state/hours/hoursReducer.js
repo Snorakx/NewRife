@@ -42,18 +42,19 @@ export default function hourReducerFunction(state = initialState, action) {
         settingsAdded: true,
       };
     case ADD_USER_WORKING_HOUR:
-      console.log(action.payload.workedHours);
       return {
         ...state,
         wordkedHours: action.payload.workedHours,
         level: action.payload.level,
       };
     case USER_NEW_LEVEL:
-      console.log(action.payload.Message);
       return {
         ...state,
         wordkedHours: action.payload.workedHours,
-        level: action.payload.level,
+        level:
+          action.payload.level !== null
+            ? action.payload.level
+            : state.workedHours.level,
         message: action.payload.message,
       };
     case SHOW_OPTIONS_TO_NEW_USER:

@@ -39,14 +39,12 @@ export const loadUser = () => (dispatch, getState) => {
       return "";
     })
     .then((data) => {
-      if (data.isSuccess === true) {
-        dispatch({
-          type: USER_LOADED,
-          payload: data,
-        });
-        dispatch(getSettings());
-        dispatch(getTasks());
-      }
+      dispatch({
+        type: USER_LOADED,
+        payload: data,
+      });
+      dispatch(getSettings());
+      dispatch(getTasks());
     })
     .catch((err) => {
       throw err;
@@ -73,27 +71,27 @@ export const loginUser = (email, password) => (dispatch, getState) => {
   };
 
   fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, requestOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.isSuccess === true) {
-        dispatch({
-          type: LOGIN_SUCCESS,
-          payload: data,
-        });
-
-        dispatch(getSettings());
-
-        dispatch(getTasks());
-
-        dispatch(clearErrors());
-      } else if (data.status !== 200) {
+    .then((response) => {
+      if (response.status === 401) {
         dispatch({
           type: LOGIN_FAILED,
-          payload: data,
         });
-
-        dispatch(returnErrors(data.message, data.errors));
+      } else {
+        return response.json();
       }
+      return "";
+    })
+    .then((data) => {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: data,
+      });
+
+      dispatch(getSettings());
+
+      dispatch(getTasks());
+
+      dispatch(clearErrors());
     })
     .catch((err) => {
       throw err;

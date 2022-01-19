@@ -154,7 +154,6 @@ export const deleteTask = (taskIdToDelete) => (dispatch, getState) => {
           type: DELETE_TASK,
           payload: taskIdToDelete,
         });
-        console.log(data);
       }
     })
     .catch((err) => {
@@ -194,11 +193,12 @@ export const changeTaskStateToDone = (taskID) => (dispatch, getState) => {
       throw err;
     });
 };
-
+/**
+ ** Action to get tasks for today, state update
+ **/
 export const getTasksForToday = () => (dispatch, getState) => {
   const date = new Date();
   const today = date.getDay().toString();
-  console.log(today);
   dispatch({
     type: GET_TASKS_FOR_TODAY,
     payload: today,

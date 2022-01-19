@@ -7,10 +7,12 @@ import { GroupedSelect } from "./DropDown/dropDown";
 
 const Task = (props, index) => {
   const dispatch = useDispatch();
+  const doneState = "Done";
 
   const handleDeleteTask = (e) => {
     dispatch(deleteTask(e));
   };
+
   return (
     <div
       onClick={props.handleClick}
@@ -22,8 +24,9 @@ const Task = (props, index) => {
     >
       <div className="container">
         <Title>
-          {props.title}
-          {props.state}
+          <span className={props.state === doneState ? "marked" : ""}>
+            {props.title}
+          </span>
         </Title>
       </div>
       <div className="bin-icon-box">

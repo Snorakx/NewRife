@@ -13,7 +13,7 @@ const RunningTask = ({ isStarted }) => {
     dispatch(changeTaskStateToDone(taskID));
   };
   return (
-    <div className="container">
+    <div className="running-task-container">
       {todayTasksTodo.map((task) => {
         return (
           <div className="holder" key={task.order}>

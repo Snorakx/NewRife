@@ -7,8 +7,6 @@ import {
   EDIT_TASK_SUCCESS,
   EDIT_TASK_FAILED,
   DELETE_TASK,
-  DELETE_TASK_SUCCESS,
-  DELETE_TASK_FAILED,
   GET_TASKS,
   GET_TASKS_SUCCESS,
   GET_TASKS_FAILED,
@@ -85,7 +83,6 @@ export default function taskReducerFunction(state = initialState, action) {
       const tempTasksArray = state.tasksList.filter(
         (item) => item.dayID === action.payload && item.state !== "Done"
       );
-      console.log(action.payload);
       return {
         ...state,
         tasksForToday: [...tempTasksArray],

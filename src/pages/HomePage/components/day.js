@@ -33,9 +33,14 @@ const Day = ({ dayID, handleClick, ...props }) => {
   return (
     <div onClick={handleClick} className="day-box">
       <div className="container">
-        <Title>{props.children}</Title>
+        <Title>
+          {props.children}
+          <span className="progress-points">
+            {doneTasks.length}/{tasksOnlyForThisDay.length}
+          </span>
+        </Title>
         {tasksOnlyForThisDay.length === 0 ? (
-          <div class="text">Wejdź i zaplanuj swój dzień</div>
+          <div className="text">Wejdź i zaplanuj swój dzień</div>
         ) : (
           <div className="progress progress-striped">
             <div

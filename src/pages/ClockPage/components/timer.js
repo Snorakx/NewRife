@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { addUserWorkedHour } from "../../../state/hours/hoursAction";
 import RunningTask from "./runningTask";
 
-const hourSeconds = 3;
+const hourSeconds = 3000;
 
 const formatRemainingTime = (time) => {
   const minutes = Math.floor((time % 3600) / 60);
@@ -35,7 +35,6 @@ const TimerComponent = () => {
 
   const onFinish = () => {
     if (isStarted) {
-      console.log("Added score +1");
       dispatch(addUserWorkedHour());
     }
   };

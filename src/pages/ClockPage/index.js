@@ -11,7 +11,7 @@ const TimerScreen = ({ isLoggedIn }) => {
 
   useEffect(() => {
     dispatch(getTasksForToday());
-  }, []);
+  }, [dispatch]);
 
   if (!isLoggedIn) {
     return <Redirect to="/" />;
