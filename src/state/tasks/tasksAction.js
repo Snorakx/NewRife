@@ -28,9 +28,9 @@ export const getTasks = () => (dispatch, getState) => {
       "Content-Type": "application/json",
     },
   };
-  dispatch({
-    type: GET_TASKS,
-  });
+
+  dispatch({ type: GET_TASKS });
+
   fetch(`${process.env.REACT_APP_API_URL}/api/tasks/getTasks`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
@@ -72,9 +72,9 @@ export const addTask = (dayId, input, repeatTask) => (dispatch, getState) => {
     },
     body: JSON.stringify(postData),
   };
-  dispatch({
-    type: ADD_TASK,
-  });
+
+  dispatch({ type: ADD_TASK });
+
   fetch(`${process.env.REACT_APP_API_URL}/api/tasks/addTask`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
@@ -106,10 +106,12 @@ export const dragAndDrop =
       type: DRAG_AND_DROP,
       payload: [...newArray],
     });
+
     const postData = {
       SourceID: sourceOrder.toString(),
       DestinationID: destinationOrder.toString(),
     };
+
     const requestOptions = {
       method: "put",
       headers: {
@@ -118,6 +120,7 @@ export const dragAndDrop =
       },
       body: JSON.stringify(postData),
     };
+
     fetch(
       `${process.env.REACT_APP_API_URL}/api/tasks/changeTaskOrder`,
       requestOptions
@@ -193,6 +196,7 @@ export const changeTaskStateToDone = (taskID) => (dispatch, getState) => {
       throw err;
     });
 };
+
 /**
  ** Action to get tasks for today, state update
  **/

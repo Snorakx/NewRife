@@ -19,7 +19,7 @@
       position: relative;
       transition: 0.1s;
       min-width: 300vw;
-      flex: 0.5 !important;
+      flex: 0.5;
       order: 2;
       @media (min-width: 700px) {
         order: initial;

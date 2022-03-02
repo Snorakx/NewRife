@@ -39,18 +39,23 @@ export default function hourReducerFunction(state = initialState, action) {
         friday: action.payload.friday,
         saturday: action.payload.saturday,
         sunday: action.payload.sunday,
+        level: action.payload.level,
+        hoursToNextLevel: action.payload.hoursToNextLevel,
+        workedHours: action.payload.workedHours,
         settingsAdded: true,
       };
     case ADD_USER_WORKING_HOUR:
       return {
         ...state,
-        wordkedHours: action.payload.workedHours,
+        workedHours: action.payload.workedHours,
+        hoursToNextLevel: action.payload.hoursToNextLevel,
         level: action.payload.level,
       };
     case USER_NEW_LEVEL:
       return {
         ...state,
         wordkedHours: action.payload.workedHours,
+        hoursToNextLevel: action.payload.hoursToNextLevel,
         level:
           action.payload.level !== null
             ? action.payload.level

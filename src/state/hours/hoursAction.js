@@ -14,6 +14,7 @@ import { changeTaskStateToDone } from "../tasks/tasksAction";
  **/
 export const setSettings = (hoursPerDay) => (dispatch, getState) => {
   const token = getState().auth.token;
+  const isNotFirstSetSetting = getState().hours.settingsAdded;
 
   const bodyData = {
     Monday: hoursPerDay.hoursPerMonday,
@@ -45,6 +46,9 @@ export const setSettings = (hoursPerDay) => (dispatch, getState) => {
           type: SET_USER_SETTINGS_SUCCESS,
           payload: data,
         });
+        if (isNotFirstSetSetting) {
+          dispatch(getSettings());
+        }
       } else {
         dispatch({
           type: SET_USER_SETTINGS_FAILED,

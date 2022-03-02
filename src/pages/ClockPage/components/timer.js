@@ -59,7 +59,7 @@ const TimerComponent = () => {
           ["#FFDA58", 1],
           ["#ff6058", 1],
         ]}
-        duration={hourSeconds}
+        duration={5}
         onComplete={() => {
           onFinish();
         }}

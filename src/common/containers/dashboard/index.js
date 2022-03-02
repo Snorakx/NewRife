@@ -14,17 +14,17 @@ import Header from "../Header/header";
 
 const Dashboard = (props) => {
   const [flexMenu, setFlexMenu] = useState("1");
-  const [minWIdth, setminWIdth] = useState("200px");
+  const [minWidth, setminWidth] = useState("200px");
 
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
     if (flexMenu === "1") {
       setFlexMenu("0");
-      setminWIdth("100px");
+      setminWidth("100px");
     } else {
       setFlexMenu("1");
-      setminWIdth("200px");
+      setminWidth("200px");
     }
   };
 
@@ -36,7 +36,7 @@ const Dashboard = (props) => {
     <div className="dashboard-wrapper">
       <Header />
       <div className="flex-row-dashboard-container">
-        <div className="sidebar" style={{ flex: flexMenu, minWidth: minWIdth }}>
+        <div className="sidebar" style={{ flex: flexMenu, minWidth: minWidth }}>
           <div className="primary-menu-sidebar-bottom">
             {flexMenu === "1" ? (
               <button onClick={() => toggleMenu()}>
@@ -61,7 +61,7 @@ const Dashboard = (props) => {
               </i>
               {flexMenu === "1" ? <span>Zegar</span> : <></>}
             </Link>
-            <Link to="/timer">
+            <Link to="/calendar">
               <i>
                 <DateRangeIcon />
               </i>

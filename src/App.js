@@ -12,6 +12,7 @@ import SettingsScreen from "./pages/SettingsPage/index";
 import TimerScreen from "./pages/ClockPage";
 import UserScreen from "./pages/UserPage";
 import TaskScreen from "./pages/TaskPage";
+import Calendar from "./pages/CalendarPage";
 
 function App() {
   require("dotenv").config();
@@ -45,6 +46,7 @@ function App() {
         <Route path="/timer" component={TimerScreen} />
         <Route path="/user" component={UserScreen} />
         <Route path="/tasks" component={TaskScreen} />
+        <Route path="/calendar" component={Calendar} />
         <PrivateRoute path="/home" component={HomeScreen} />
       </Switch>
     </Router>

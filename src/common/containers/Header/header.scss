@@ -1,34 +1,51 @@
 @import "../../../App.scss";
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 10vh;
+  padding: 0.2rem 1rem;
+  box-shadow: -2px 2px 15px 0px rgba(46, 24, 187, 0.151);
 
-.header{
-    display:flex;
-    justify-content: space-between;
+  .avatar_btn {
+    display: flex;
     align-items: center;
-    max-height:10vh;
-    padding:.2rem 1rem;
-    box-shadow: -2px 2px 15px 0px rgba(46, 24, 187, 0.151);
+    flex: 1;
+    height: 100%;
+    width: auto;
+    justify-content: flex-end;
 
-
-    .avatar_btn{
-        display: flex;
-        align-items: center;
-        flex: 1;
-        height: 100%;
-        width: auto;
-        justify-content: flex-end;
-        img{
-            height:85%;
-            border-radius:50%;
-        }
+    img {
+      height: 85%;
+      border-radius: 50%;
     }
-    .sidebar_btn {
-        z-index: 1;
-        background-color: $white-100;
-        flex:1;
-        height:100%;
-        width:auto;
-        display:flex;
-        align-items: center;
+
+    .progress-holder {
+      width: 200px;
+      margin: 0 20px;
+      .progress {
+        margin: 0;
+        position: relative;
+        .numbers {
+          position: absolute;
+          top: 150%;
+          left: 18%;
+          transform: translate(-50%, -50%);
+          font-weight: 600;
+          font-size: 18px;
+          color: $gray-400;
+        }
       }
+    }
+  }
+  .sidebar_btn {
+    z-index: 1;
+    background-color: $white-100;
+    flex: 1;
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
 }

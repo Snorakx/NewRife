@@ -12,21 +12,21 @@ const UserComponent = () => {
     <div className="user-container">
       <div className="user-card-left">
         <UserCardStats />
-        <UserAccountSettings />
+        {/* <UserAccountSettings /> */}
       </div>
       <div className="user-card-right">
         <div className="user-features">
           <div className="card-holder user-card-lvl">
             <UserLevel />
           </div>
-          <div className="card-holder user-card-badges">
+          {/* <div className="card-holder user-card-badges">
             <UserAchievement />
             <UserAward />
-          </div>
+          </div> */}
         </div>
-        <div className="user-chart">
+        {/* <div className="user-chart">
           <UserChartOfHours />
-        </div>
+        </div> */}
       </div>
     </div>
   );

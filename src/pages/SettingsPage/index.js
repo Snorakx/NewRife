@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Logo from "../../common/components/logo/logo-lg/index";
 import BasicText from "../../common/components/Texts/BasicText/index";
 import Title from "../../common/components/Texts/Titles/index";
 import Slider from "@material-ui/core/Slider";
 import PrimaryBtn from "../../common/components/PrimaryBtn/index";
 import "./style.scss";
-import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { setSettings } from "../../state/hours/hoursAction";
 
 const marks = [
@@ -55,13 +55,29 @@ function valuetext(value) {
 const DefaultSettings = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [hoursPerMonday, setHoursPerMonday] = useState(0);
-  const [hoursPerTuesday, setHoursPerTuesday] = useState(0);
-  const [hoursPerWednesday, setHoursPerWednesday] = useState(0);
-  const [hoursPerThursday, setHoursPerThursday] = useState(0);
-  const [hoursPerFriday, setHoursPerFriday] = useState(0);
-  const [hoursPerSaturday, setHoursPerSaturday] = useState(0);
-  const [hoursPerSunday, setHoursPerSunday] = useState(0);
+  const hours = useSelector((state) => state.hours);
+
+  const [hoursPerMonday, setHoursPerMonday] = useState(
+    hours.monday ? hours.monday : 0
+  );
+  const [hoursPerTuesday, setHoursPerTuesday] = useState(
+    hours.tuesday ? hours.tuesday : 0
+  );
+  const [hoursPerWednesday, setHoursPerWednesday] = useState(
+    hours.wednesday ? hours.wednesday : 0
+  );
+  const [hoursPerThursday, setHoursPerThursday] = useState(
+    hours.thursday ? hours.thursday : 0
+  );
+  const [hoursPerFriday, setHoursPerFriday] = useState(
+    hours.friday ? hours.friday : 0
+  );
+  const [hoursPerSaturday, setHoursPerSaturday] = useState(
+    hours.saturday ? hours.saturday : 0
+  );
+  const [hoursPerSunday, setHoursPerSunday] = useState(
+    hours.sunday ? hours.sunday : 0
+  );
 
   const countHours = (hoursPerDay) => {
     let number = 0;
@@ -92,16 +108,17 @@ const DefaultSettings = (props) => {
 
   return (
     <div className="box">
-      <Logo />
+      {!hours.settingsAdded ? <Logo /> : ""}
       <BasicText>Ile czasu w tygodniu chcesz spędzić na pracy?</BasicText>
       <BasicText>
         Masz w sumie do dyspozycji 48 godzin na cały tydzień.
       </BasicText>
+      <br />
       <Title>Poniedziałek</Title>
       <Slider
         className="slider"
         getAriaValueText={valuetext}
-        defaultValue={0}
+        defaultValue={hours.monday ? hours.monday : 0}
         aria-labelledby="discrete-slider-custom1"
         step={1}
         max={8}
@@ -112,7 +129,7 @@ const DefaultSettings = (props) => {
       <Title>Wtorek</Title>
       <Slider
         className="slider"
-        defaultValue={0}
+        defaultValue={hours.tuesday ? hours.tuesday : 0}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-custom2"
         step={1}
@@ -124,7 +141,7 @@ const DefaultSettings = (props) => {
       <Title>Środa</Title>
       <Slider
         className="slider"
-        defaultValue={0}
+        defaultValue={hours.wednesday ? hours.wednesday : 0}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-custom"
         step={1}
@@ -136,7 +153,7 @@ const DefaultSettings = (props) => {
       <Title>Czwartek</Title>
       <Slider
         className="slider"
-        defaultValue={0}
+        defaultValue={hours.thursday ? hours.thursday : 0}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-custom"
         step={1}
@@ -148,7 +165,7 @@ const DefaultSettings = (props) => {
       <Title>Piątek</Title>
       <Slider
         className="slider"
-        defaultValue={0}
+        defaultValue={hours.friday ? hours.friday : 0}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-custom"
         step={1}
@@ -160,7 +177,7 @@ const DefaultSettings = (props) => {
       <Title>Sobota</Title>
       <Slider
         className="slider"
-        defaultValue={0}
+        defaultValue={hours.saturday ? hours.saturday : 0}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-custom"
         step={1}
@@ -172,7 +189,7 @@ const DefaultSettings = (props) => {
       <Title>Niedziela</Title>
       <Slider
         className="slider"
-        defaultValue={0}
+        defaultValue={hours.sunday ? hours.sunday : 0}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider-custom"
         step={1}
@@ -182,7 +199,9 @@ const DefaultSettings = (props) => {
         onChange={(e, val) => setHoursPerSunday(val)}
       />
       <PrimaryBtn handleClick={handleSettingsSubmit}>
-        Zapisz ustawienia i przejdź do aplikacji
+        {!hours.settingsAdded
+          ? "Zapisz ustawienia i przejdź do aplikacji"
+          : "Zapisz ustawienia"}
       </PrimaryBtn>
     </div>
   );
