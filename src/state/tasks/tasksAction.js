@@ -191,6 +191,7 @@ export const changeTaskStateToDone = (taskID) => (dispatch, getState) => {
         type: SET_DONE_TASK,
         payload: data,
       });
+      console.log(data);
     })
     .catch((err) => {
       throw err;

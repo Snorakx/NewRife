@@ -36,15 +36,20 @@ export const loadUser = () => (dispatch, getState) => {
       } else {
         return response.json();
       }
-      return "";
     })
     .then((data) => {
-      dispatch({
-        type: USER_LOADED,
-        payload: data,
-      });
-      dispatch(getSettings());
-      dispatch(getTasks());
+      if (data?.isSuccess) {
+        dispatch({
+          type: USER_LOADED,
+          payload: data,
+        });
+        dispatch(getSettings());
+        dispatch(getTasks());
+      } else {
+        dispatch({
+          type: LOGIN_FAILED,
+        });
+      }
     })
     .catch((err) => {
       throw err;

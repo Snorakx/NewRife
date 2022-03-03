@@ -1,26 +1,33 @@
 import React from "react";
-import store from "../../app/store";
 import { Redirect } from "react-router-dom";
 import Dashboard from "../../common/containers/dashboard";
+import { useSelector } from "react-redux";
 
 import DayContainer from "../HomePage/components/dayContainer";
 
 const HomeScreen = () => {
-  let isLoggedIn = store.getState().auth.isAuthenticated;
-  let isNewUser = store.getState().hours.isNewUser;
+  const isNewUser = useSelector((state) => state.hours.isNewUser);
+  const token = useSelector((state) => state.auth.token);
+  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
 
-  if (!isLoggedIn) {
+  const isUserAuth = () => {
+    return Boolean(isLoggedIn && token);
+  };
+
+  if (!isLoggedIn || !token) {
     return <Redirect to="/" />;
   }
 
-  if (!isNewUser) {
+  if (isNewUser) {
+    return <Redirect to="/settings" />;
+  }
+
+  if (isUserAuth) {
     return (
       <Dashboard>
         <DayContainer />
       </Dashboard>
     );
-  } else {
-    return <Redirect to="/settings" />;
   }
 };
 

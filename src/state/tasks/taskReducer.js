@@ -91,7 +91,7 @@ export default function taskReducerFunction(state = initialState, action) {
       const ArrayWithoutDoneTask = state.tasksForToday.filter(
         (item) => item.id !== action.payload.id
       );
-      const CurrentDoneTask = state.tasksList.filter(
+      const CurrentDoneTask = state.tasksList.find(
         (item) => item.id === action.payload.id
       );
       CurrentDoneTask.state = "Done";

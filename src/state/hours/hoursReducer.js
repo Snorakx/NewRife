@@ -6,7 +6,6 @@ import {
   USER_NEW_LEVEL,
   SHOW_OPTIONS_TO_NEW_USER,
 } from "../hours/hoursTypes";
-
 const initialState = {
   settingsAdded: false,
   workedHours: 0,

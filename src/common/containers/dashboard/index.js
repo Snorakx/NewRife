@@ -30,6 +30,7 @@ const Dashboard = (props) => {
 
   const LogoutUser = () => {
     dispatch(logoutUser());
+    setTimeout(() => window.location.reload(), 1000);
   };
 
   return (

@@ -28,7 +28,7 @@ export default function authReducerFunction(state = initialState, action) {
         ...state,
         isAuthenticated: true,
         isLoading: false,
-        user: action.payload.userData,
+        user: action?.payload?.userData ?? "",
       };
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
@@ -38,6 +38,7 @@ export default function authReducerFunction(state = initialState, action) {
         token: action.payload.message,
         isAuthenticated: true,
         isLoading: false,
+        user: action?.payload?.userData ?? "",
       };
     case AUTH_ERROR:
     case LOGIN_FAILED:
