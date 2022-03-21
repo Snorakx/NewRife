@@ -13,6 +13,7 @@ import {
   DRAG_AND_DROP,
   SET_DONE_TASK,
   GET_TASKS_FOR_TODAY,
+  COUNT_DONE_TASKS,
 } from "../tasks/taskTypes";
 
 const initialState = {
@@ -22,6 +23,7 @@ const initialState = {
   addingTask: false,
   addTaskSuccess: false,
   tasksForToday: [],
+  allDoneTasks: 0,
 };
 
 export default function taskReducerFunction(state = initialState, action) {
@@ -89,16 +91,21 @@ export default function taskReducerFunction(state = initialState, action) {
       };
     case SET_DONE_TASK:
       const ArrayWithoutDoneTask = state.tasksForToday.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item.id !== action.payload.currentTask.id
       );
       const CurrentDoneTask = state.tasksList.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.currentTask.id
       );
       CurrentDoneTask.state = "Done";
       return {
         ...state,
         laodingTasks: false,
         tasksForToday: [...ArrayWithoutDoneTask],
+      };
+    case COUNT_DONE_TASKS:
+      return {
+        ...state,
+        allDoneTasks: action.payload.allDoneTasks,
       };
     default:
       return state;

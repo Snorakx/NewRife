@@ -77,26 +77,25 @@ export const loginUser = (email, password) => (dispatch, getState) => {
 
   fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, requestOptions)
     .then((response) => {
-      if (response.status === 401) {
+      return response.json();
+    })
+    .then((data) => {
+      if (data.isSuccess) {
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: data,
+        });
+
+        dispatch(getSettings());
+        dispatch(getTasks());
+        dispatch(clearErrors());
+      } else {
         dispatch({
           type: LOGIN_FAILED,
         });
-      } else {
-        return response.json();
+
+        dispatch(returnErrors(data.message ?? data.title, data.errors));
       }
-      return "";
-    })
-    .then((data) => {
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: data,
-      });
-
-      dispatch(getSettings());
-
-      dispatch(getTasks());
-
-      dispatch(clearErrors());
     })
     .catch((err) => {
       throw err;

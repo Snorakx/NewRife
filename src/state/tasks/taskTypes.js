@@ -17,3 +17,4 @@ export const DRAG_AND_DROP = "DRAG_AND_DROP";
 
 export const SET_DONE_TASK = "SET_DONE_TASK";
 export const GET_TASKS_FOR_TODAY = "GET_TASKS_FOR_TODAY";
+export const COUNT_DONE_TASKS = "COUNT_DONE_TASKS";

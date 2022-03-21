@@ -4,6 +4,11 @@
   flex: 1;
   display: flex;
   width: 100%;
+  flex-direction: column;
+
+  @media (min-width: 1080px) {
+    flex-direction: row;
+  }
 
   .user-card-left {
     flex: 1;

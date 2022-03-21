@@ -41,7 +41,8 @@ export default function hourReducerFunction(state = initialState, action) {
         level: action.payload.level,
         hoursToNextLevel: action.payload.hoursToNextLevel,
         workedHours: action.payload.workedHours,
-        settingsAdded: true,
+        allWorkedHours: action.payload.allWorkedHours,
+        settingsAdded: action.payload.isSuccess,
       };
     case ADD_USER_WORKING_HOUR:
       return {

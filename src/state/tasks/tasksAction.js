@@ -14,6 +14,7 @@ import {
   DRAG_AND_DROP,
   SET_DONE_TASK,
   GET_TASKS_FOR_TODAY,
+  COUNT_DONE_TASKS,
 } from "../tasks/taskTypes";
 
 /**
@@ -25,7 +26,6 @@ export const getTasks = () => (dispatch, getState) => {
     method: "get",
     headers: {
       Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
     },
   };
 
@@ -191,7 +191,35 @@ export const changeTaskStateToDone = (taskID) => (dispatch, getState) => {
         type: SET_DONE_TASK,
         payload: data,
       });
-      console.log(data);
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+
+/**
+ ** Action to count tasks since start, state update
+ **/
+export const countAllDoneTasks = () => (dispatch, getState) => {
+  const token = getState().auth.token;
+
+  const requestOptions = {
+    method: "get",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  fetch(
+    `${process.env.REACT_APP_API_URL}/api/tasks/CountAllDoneTasks`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch({
+        type: COUNT_DONE_TASKS,
+        payload: data,
+      });
     })
     .catch((err) => {
       throw err;
@@ -201,9 +229,10 @@ export const changeTaskStateToDone = (taskID) => (dispatch, getState) => {
 /**
  ** Action to get tasks for today, state update
  **/
-export const getTasksForToday = () => (dispatch, getState) => {
+export const getTasksForToday = () => (dispatch) => {
   const date = new Date();
   const today = date.getDay().toString();
+
   dispatch({
     type: GET_TASKS_FOR_TODAY,
     payload: today,

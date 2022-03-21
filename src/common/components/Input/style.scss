@@ -1,24 +1,22 @@
-@import '../../../App.scss';
+@import "../../../App.scss";
 
-.my-input{
-width:90%;
-    .custom-input{
-    width:100%;
+.my-input {
+  width: 90%;
+  .custom-input {
+    width: 100%;
+  }
+
+  .container {
+    padding: 2% 0%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .custom-button-for-input {
+    background-color: $primary-1000;
+    font-size: 1.7rem;
+    border-radius: 5px;
+    transform: translateX(-15px);
+  }
 }
-
-    .container{
-        padding: 2% 0%;
-        width:100%;
-        display:flex;
-        align-items: center;
-        overflow: hidden;
-    }
-    .custom-button-for-input{
-        background-color: $primary-1000;
-        font-size:1.7rem;
-        border-radius:5px;
-        transform:translateX(-15px);
-}
-}
-
-

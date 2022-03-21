@@ -28,8 +28,8 @@ const Header = () => {
           <div className="progress progress-striped">
             <div className="text numbers">
               {workedHours && hoursToNextLevel > 0
-                ? workedHours + "/" + hoursToNextLevel + "IZG"
-                : "Bonusowa godzinka?"}{" "}
+                ? workedHours + "/" + hoursToNextLevel + " IZG"
+                : ""}
             </div>
             <div
               className="progress-bar"
